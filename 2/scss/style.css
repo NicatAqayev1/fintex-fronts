@@ -1,0 +1,61 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+header .header-top {
+  padding: 0 5rem;
+}
+header .header-top .top-left {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+header .header-top .top-center .logo {
+  width: 150px;
+  height: 150px;
+  background-image: url(../images/logo2.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-size: 180px;
+}
+header .header-top .top-center .logo img {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+header .header-top .top-right {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+}
+header .header-top .top-right .btns .btn {
+  background-color: black;
+}
+header .header-top .top-right .btns .btn a {
+  color: white;
+}
+header .header-bottom .links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 0;
+}
+header .header-bottom .links li {
+  padding: 5px;
+  margin: 0 5px;
+}
+header .header-bottom .links li a {
+  color: black;
+}/*# sourceMappingURL=style.css.map */
