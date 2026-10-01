@@ -4520,7 +4520,7 @@ section,
 # Service Details Section
 --------------------------------------------------------------*/
 .service-details {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 @media (max-width: 768px) {
@@ -4587,11 +4587,11 @@ section,
 }
 
 .service-details .service-overview h2 {
-  font-size: 36px;
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 24px;
   letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    font-size: 25px;
 }
 
 @media (max-width: 768px) {
@@ -4601,7 +4601,7 @@ section,
 }
 
 .service-details .service-overview p {
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.8;
   color: color-mix(in srgb, var(--default-color) 85%, transparent);
   margin-bottom: 16px;
@@ -4679,7 +4679,7 @@ section,
 .service-details .service-process h3 {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .service-details .service-process .process-timeline {
@@ -4689,7 +4689,7 @@ section,
 .service-details .service-process .process-timeline::before {
   content: "";
   position: absolute;
-  left: 28px;
+  left: 22px;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -4705,7 +4705,7 @@ section,
 .service-details .service-process .process-timeline .process-item {
   display: flex;
   gap: 24px;
-  padding-bottom: 32px;
+  padding-bottom: 10px;
   position: relative;
 }
 
@@ -4715,15 +4715,15 @@ section,
 
 .service-details .service-process .process-timeline .process-item .process-number {
   flex-shrink: 0;
-  width: 58px;
-  height: 58px;
+     width: 45px;
+    height: 45px;
+    font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--accent-color);
   color: var(--contrast-color);
   border-radius: 50%;
-  font-size: 18px;
   font-weight: 800;
   position: relative;
   z-index: 1;
