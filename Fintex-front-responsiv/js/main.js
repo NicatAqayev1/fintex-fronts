@@ -37,20 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCount();
         });
     };
+    startCounter();
 
     // Scroll ilə görünən zaman işə düşməsi
-    const statsSection = document.getElementById("stats");
-    if (statsSection) {
-        window.addEventListener("scroll", () => {
-            const sectionPos = statsSection.getBoundingClientRect().top;
-            const screenPos = window.innerHeight / 1.2;
+    // const statsSection = document.getElementById("stats");
+    // if (statsSection) {
+    //     window.addEventListener("scroll", () => {
+    //         const sectionPos = statsSection.getBoundingClientRect().top;
+    //         const screenPos = window.innerHeight / 1.2;
 
-            if (sectionPos < screenPos && !animated) {
-                startCounter();
-                animated = true;
-            }
-        });
-    }
+    //         if (sectionPos < screenPos && !animated) {
+    //             startCounter();
+    //             animated = true;
+    //         }
+    //     });
+    // }
 
     /* ==========================================
        3. SEARCH BUTTON INTERACTION

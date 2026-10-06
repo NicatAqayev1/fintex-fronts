@@ -523,8 +523,9 @@ SERVICE DETAIL MAIN CONTENT
   border-radius: 12px;
   padding: 12px;
   background-color: white;
+  overflow-y: scroll;
+  max-height: 20rem;
 }
-
 .other-services .service {
   margin: 5px 0;
 }
@@ -1154,8 +1155,9 @@ FOOTER SECTION
      border: 1px solid rgb(226 237 255);
     background: rgb(247 249 252);
     border-radius: 15px;
-  color: #fff;
+  color: var(--text-primary);
   box-sizing: border-box;
+  outline: none;
 }
 
 .contact-form input::placeholder {
