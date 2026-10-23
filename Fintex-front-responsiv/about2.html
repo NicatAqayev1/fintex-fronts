@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintex - Mühəndislik & Təhlükəsizlik Sistemləri</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Məvcut custom CSS faylınız -->
+    <link rel="stylesheet" href="./css/a2.css">
+
+    <!-- Landing Page-ə xüsusi Modern Elit Stillər -->
+    <style>
+        :root {
+            --primary-color: #0b132b;
+            --accent-color: #1c2541;
+            --brand-blue: #3a86ff;
+            --brand-gold: #ffb703;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #1c2541;
+            overflow-x: hidden;
+        }
+
+        /* Modern Hero Section */
+        .hero-landing {
+            position: relative;
+            background: linear-gradient(135deg, #0b132b 0%, #1c2541 60%, #1e3866 100%);
+            padding: 140px 0 100px;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-landing::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(58, 134, 255, 0.25) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(58, 134, 255, 0.15);
+            border: 1px solid rgba(58, 134, 255, 0.3);
+            border-radius: 50px;
+            color: #3a86ff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, #3a86ff, #00f5d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            max-width: 580px;
+        }
+
+        /* Glass Cards for Hero Side / Features */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(58, 134, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Premium Buttons */
+        .btn-elit-primary {
+            background: linear-gradient(90deg, #3a86ff 0%, #2563eb 100%);
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 25px rgba(58, 134, 255, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-elit-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(58, 134, 255, 0.6);
+            color: #fff;
+        }
+
+        .btn-elit-outline {
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-elit-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px 25px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: #3a86ff;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: rgba(58, 134, 255, 0.1);
+            color: #3a86ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h6 {
+            color: #3a86ff;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .section-header h3 {
+            font-weight: 800;
+            color: #0b132b;
+            font-size: 2.2rem;
+            margin-top: 10px;
+        }
+
+        /* Stats Overlay Section */
+        .stats-card-modern {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(11, 19, 43, 0.08);
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item h2 {
+            font-weight: 800;
+            color: #3a86ff;
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: #64748b;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Modern Contact CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #1c2541 0%, #0b132b 100%);
+            border-radius: 30px;
+            padding: 60px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Orijinal header quruluşunuz qorunub) -->
+    <header id="header" class="services sticky-top">
+        <div class="container header">
+            <div class="row align-items-center g-3">
+                <div class="logo col-6 col-lg-2 text-start">
+                    <a href="home.html">
+                        <img src="./images/logo.svg" alt="Fintex Logo" class="img-fluid">   
+                    </a>
+                </div>
+                <div class="navs col-12 col-lg-7 order-3 order-lg-2">
+                    <ul class="navs-ul">
+                        <li class="nav-a"><a href="home.html">Ana Səhifə</a></li>
+                        <li class="nav-a"><a class="active" href="#about">Haqqımızda</a></li>
+                        <li class="nav-a"><a href="index.html">Xidmətlər</a></li>
+                        <li class="nav-a"><a href="#documents">Lisenziyalar</a></li>
+                        <li class="nav-a"><a href="#contact">Əlaqə</a></li>
+                    </ul>
+                </div>
+                <div class="connect col-6 col-lg-3 text-end order-2 order-lg-3">
+                    <a href="#" class="language">
+                        <i class="fa-solid fa-earth-europe"></i>
+                        <select name="lang" id="lang-dropdown">
+                            <option value="AZ" selected>AZ</option>
+                            <option value="EN">EN</option>
+                            <option value="RU">RU</option>
+                        </select>
+                    </a>
+                    <!-- <a href="#" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a> -->
+                    <a href="#contact" class="my-btn connect-btn d-none d-md-inline-flex">Əlaqə saxla</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-landing">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 hero-content">
+                        <div class="hero-badge">
+                            <i class="fa-solid fa-shield-halved"></i> Premium Mühəndislik Həlləri
+                        </div>
+                        <h1 class="hero-title">
+                            Gələcəyin təhlükəsizlik və <span>zəif axın</span> infrastrukturunu qururuq
+                        </h1>
+                        <p class="hero-subtitle">
+                            Fintex — böyük miqyaslı obyektlər, korporativ mərkəzlər və sənaye müəssisələri üçün inteqrasiya olunmuş ağıllı bina, yanğın və təhlükəsizlik sistemlərinin vahid mərkəzidir.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="index.html" class="btn-elit-primary">
+                                Xidmətlərimiz <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="#about" class="btn-elit-outline">
+                                Haqqımızda <i class="fa-solid fa-circle-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="glass-card">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="feature-icon mb-0" style="background: rgba(255,255,255,0.1); color: #fff;">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white mb-1">Vahid Inteqrasiya</h5>
+                                    <p class="text-white-50 mb-0 small">Bütün sistemlər tək mərkəzdən idarə edilir</p>
+                                </div>
+                            </div>
+                            <hr style="border-color: rgba(255,255,255,0.1);">
+                            <ul class="list-unstyled text-white-50 d-flex flex-column gap-3 my-4">
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-info"></i> International Standartlara Tam Uyğunluq
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-info"></i> Lisenziyalaşdırılmış Mühəndis Heyəti
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-info"></i> 24/7 Fasiləsiz Texniki Dəstək
+                                </li>
+                            </ul>
+                            <a href="service-detail1.html" class="btn btn-sm btn-outline-light w-100 rounded-pill py-2">
+                                Yanğın Təhlükəsizliyi Həlləri →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Statistics Bar -->
+        <div class="container">
+            <div class="stats-card-modern">
+                <div class="row text-center g-4">
+                    <div class="col-6 col-md-3 stat-item">
+                        <h2>100+</h2>
+                        <p>Uğurlu Layihə</p>
+                    </div>
+                    <div class="col-6 col-md-3 stat-item">
+                        <h2>50+ km</h2>
+                        <p>Kabel İnfrastrukturu</p>
+                    </div>
+                    <div class="col-6 col-md-3 stat-item">
+                        <h2>99%</h2>
+                        <p>Müştəri Məmnuniyyəti</p>
+                    </div>
+                    <div class="col-6 col-md-3 stat-item">
+                        <h2>10+ İl</h2>
+                        <p>Sənaye Təcrübəsi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About & Core Advantages Section -->
+        <section id="about" class="py-5 my-5">
+            <div class="container">
+                <div class="section-header">
+                    <h6>NİYƏ FINTEX?</h6>
+                    <h3>Obyektləriniz üçün Etibarlı və Yüksək Texnologiyalı Tərəfdaş</h3>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-box text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </div>
+                            <h5>Layiha və Mühəndislik</h5>
+                            <p class="text-muted">Beynəlxalq standartlara (NFPA, EN) tam cavab verən, sıfırdan dəqiq mühəndislik layihələndirməsi.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <h5>Peşəkar Quraşdırma</h5>
+                            <p class="text-muted">Sertifikatlı mütəxəssislərimiz tərəfindən yüksək keyfiyyətli montaj və sazlama işləri.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <h5>Servis və Avtomatlaşdırma</h5>
+                            <p class="text-muted">Sistemlərin fasiləsiz işləməsi üçün dövri texniki baxış və operativ dəstək xidməti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Categories Preview Grid -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row align-items-end mb-5">
+                    <div class="col-lg-8">
+                        <div class="section-header text-start mb-0">
+                            <h6>XİDMƏTLƏRİMİZ</h6>
+                            <h3>Hər Bir Obyekt Üçün Kompleks Sistemlər</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                        <a href="index.html" class="my-btn">Bütün Xidmətlər <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                            <div class="card-body p-4">
+                                <div class="text-danger fs-2 mb-3"><i class="fa-solid fa-fire-extinguisher"></i></div>
+                                <h5>Yanğın Aşkarlama</h5>
+                                <p class="text-muted small">Tüstü, istilik, VESDA aspirasiya və erkən bildiriş sistemləri.</p>
+                                <a href="service-detail1.html" class="fw-bold text-decoration-none text-dark">Ətraflı →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                            <div class="card-body p-4">
+                                <div class="text-primary fs-2 mb-3"><i class="fa-solid fa-video"></i></div>
+                                <h5>Video Təhlükəsizlik</h5>
+                                <p class="text-muted small">CCTV, intelligent video analitika və mərkəzləşdirilmiş VMS.</p>
+                                <a href="index.html" class="fw-bold text-decoration-none text-dark">Ətraflı →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                            <div class="card-body p-4">
+                                <div class="text-success fs-2 mb-3"><i class="fa-solid fa-fingerprint"></i></div>
+                                <h5>Giriş & Mühafizə</h5>
+                                <p class="text-muted small">Access Control, biometrik keçid, turniket və turniket həlləri.</p>
+                                <a href="index.html" class="fw-bold text-decoration-none text-dark">Ətraflı →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                            <div class="card-body p-4">
+                                <div class="text-warning fs-2 mb-3"><i class="fa-solid fa-network-wired"></i></div>
+                                <h5>İT İnfrastrukturu</h5>
+                                <p class="text-muted small">Data mərkəzləri, fiber-optik xətlər, Wi-Fi və server şəbəkələri.</p>
+                                <a href="index.html" class="fw-bold text-decoration-none text-dark">Ətraflı →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern CTA & Contact Section -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <div class="cta-section">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6">
+                            <h6 class="text-info font-weight-bold">BİZİMLƏ ƏLAQƏ</h6>
+                            <h2 class="display-6 fw-bold mb-3">Layihənizi Peşəkarlara Həvalə Edin</h2>
+                            <p class="text-white-50 mb-4">Mütəxəssislərimiz obyektinizə pulsuz baxış keçirməyə və ən uyğun mühəndislik həllini təklif etməyə hazırdır.</p>
+                            
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="p-3 bg-white bg-opacity-10 rounded-circle text-info">
+                                        <i class="fa-solid fa-phone fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="small text-white-50">Telefon</div>
+                                        <div class="fw-bold">+994 50 123 45 67</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="p-3 bg-white bg-opacity-10 rounded-circle text-info">
+                                        <i class="fa-solid fa-envelope fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="small text-white-50">E-poçt</div>
+                                        <div class="fw-bold">info@fintex.az</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Card -->
+                        <div class="col-lg-6">
+                            <div class="bg-white p-4 p-md-5 rounded-4 text-dark shadow-lg">
+                                <h4 class="fw-bold mb-3">Müraciət Göndərin</h4>
+                                <form id="mainLandingForm">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control form-control-lg rounded-3" placeholder="Ad və Soyadınız" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="tel" class="form-control form-control-lg rounded-3" placeholder="Əlaqə Nömrəniz" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control form-control-lg rounded-3" rows="3" placeholder="Layihəniz haqqında qısa məlumat..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn-elit-primary w-100 justify-content-center py-3">
+                                        Təklif Alın <i class="fa-solid fa-paper-plane ms-2"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="logo mb-3">
+                            <a href="index.html">
+                            <img src="./images/logo.svg" alt="Fintex Logo" style="max-width: 150px;">
+                            </a>
+                        </div>
+                        <p class="footer-main-text">Zəif axın, yanğın aşkarlama, təhlükəsizlik və bina avtomatlaşdırma sistemləri</p>
+                        <ul class="socials">
+                            <li class="link"><a href="#"><img src="./images/instagram.svg" alt="Instagram"></a></li>
+                            <li class="link"><a href="#"><img src="./images/facebook.svg" alt="Facebook"></a></li>
+                            <li class="link"><a href="#"><img src="./images/linkedin.svg" alt="LinkedIn"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Sürətli keçidlər</p>
+                        <ul class="links">
+                            <li><a href="index.html"><span>&gt;</span>Ana səhifə</a></li>
+                            <li><a href="#"><span>&gt;</span>Haqqında</a></li>
+                            <li><a href="#"><span>&gt;</span>Xidmətlər</a></li>
+                            <li><a href="#"><span>&gt;</span>Məhsullar</a></li>
+                            <li><a href="#"><span>&gt;</span>Bloglar</a></li>
+                            <li><a href="#"><span>&gt;</span>Əlaqə</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Məhsullarımız</p>
+                        <ul class="links">
+                            <li><a href="#"><span>&gt;</span>Yanğın</a></li>
+                            <li><a href="#"><span>&gt;</span>Təhlükəsizlik</a></li>
+                            <li><a href="#"><span>&gt;</span>Rabitə</a></li>
+                            <li><a href="#"><span>&gt;</span>İT infrastrukturu</a></li>
+                            <li><a href="#"><span>&gt;</span>Audio-video</a></li>
+                            <li><a href="#"><span>&gt;</span>Avtomatlaşdırma</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Əlaqə məlumatlarımız</p>
+                        <ul class="links">
+                            <li>
+                                <a href="tel:+994501234567">
+                                    <img src="./images/phone-icon.svg" alt="Phone">
+                                    <span class="link-text">+994 50 123 45 67</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@fintex.az">
+                                    <img src="./images/mail-icon.svg" alt="Email">
+                                    <span class="link-text">info@fintex.az</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./images/location-icon.svg" alt="Location">
+                                    <span class="link-text">Baku, 1st Jidir, home 21</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 footer-bottom">
+                        <div class="row g-2 align-items-center w-100">
+                            <div class="col-12 col-md-4 text-center text-md-start">
+                                <p>© Copyright 2022 Fintex. All Rights Reserved</p>
+                            </div>
+                            <div class="col-12 col-md-4 footer-bottom-links justify-content-center my-2 my-md-0">
+                                <a href="#">Məxfilik siyasəti</a>
+                                <a href="#">İstifadə şərtləri</a>
+                                <a href="#">Sayt xəritəsi</a>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end">
+                                <p>Designed by "Design" in Azerbaijan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

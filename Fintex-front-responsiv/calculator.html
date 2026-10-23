@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smeta Kalkulyatoru - Fintex Zəif Axın və Mühafizə Sistemləri</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/a2.css">
+</head>
+<style>
+    /* ==========================================
+CALCULATOR PAGE CUSTOM STYLES
+========================================== */
+#service-detail-intro .container-fluid{
+    padding: 3rem;
+    padding-top: 7rem;
+}
+
+
+
+.calc-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 2px solid var(--bg-slate-soft);
+  padding-bottom: 12px;
+}
+
+.step-header .step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.step-header h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Radio Option Cards */
+.calc-option-card input {
+  display: none;
+}
+
+.calc-option-card .card-box {
+  background: var(--bg-main);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 20px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+}
+
+.calc-option-card .card-box i {
+  font-size: 26px;
+  color: var(--text-slate);
+  transition: var(--transition-fast);
+}
+
+.calc-option-card .card-box span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calc-option-card input:checked + .card-box {
+  background: var(--bg-soft-blue);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 20px rgba(3, 72, 103, 0.12);
+}
+
+.calc-option-card input:checked + .card-box i {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Range Input Styling */
+.range-wrapper {
+  background: var(--bg-main);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.area-badge {
+  background: var(--primary-color);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.custom-range::-webkit-slider-thumb {
+  background: var(--secondary-color);
+  box-shadow: 0 0 10px rgba(166, 0, 0, 0.4);
+}
+
+/* Checkbox Cards */
+.calc-checkbox-card input {
+  display: none;
+}
+
+.calc-checkbox-card .checkbox-box {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calc-checkbox-card .checkbox-box h6 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.calc-checkbox-card .checkbox-box p {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.calc-checkbox-card .check-icon {
+  color: #cbd5e1;
+  font-size: 20px;
+  transition: var(--transition-fast);
+}
+
+.calc-checkbox-card input:checked + .checkbox-box {
+  border-color: var(--primary-color);
+  background: var(--bg-soft-blue);
+}
+
+.calc-checkbox-card input:checked + .checkbox-box .check-icon {
+  color: var(--primary-color);
+}
+
+/* Summary Right Card */
+.summary-card {
+  background: linear-gradient(145deg, #061D36 0%, #034867 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(3, 72, 103, 0.25);
+}
+
+.summary-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.summary-card .subtitle {
+  font-size: 12px;
+  color: var(--text-light-blue);
+  margin-bottom: 0;
+}
+
+.summary-card .price-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.summary-card .price-box .currency {
+  font-size: 22px;
+  color: var(--secondary-light-color);
+  font-weight: 700;
+}
+
+.summary-card .price-box .amount {
+  font-size: 26px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.summary-features li {
+  font-size: 12px;
+  color: #e2e8f0;
+  margin-bottom: 10px;
+}
+
+.form-control-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.form-control-dark::placeholder {
+  color: var(--text-caption);
+}
+
+.form-control-dark:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--secondary-light-color);
+  box-shadow: none;
+  color: white;
+}
+
+.btn-elit-submit {
+  background: linear-gradient(90deg, var(--secondary-color) 0%, #d32f2f 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-elit-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(166, 0, 0, 0.4);
+}
+
+.text-purple {
+  color: #8e44ad;
+}
+</style>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="services sticky-top">
+        <div class="container header">
+            <div class="row align-items-center g-3">
+                <div class="logo col-6 col-lg-2 text-start">
+                    <a href="index.html">
+                        <img src="./images/logo.svg" alt="Fintex Logo" class="img-fluid">   
+                    </a>
+                </div>
+                <div class="navs col-12 col-lg-7 order-3 order-lg-2">
+                    <ul class="navs-ul">
+                        <li class="nav-a"><a href="index.html">Home</a></li>
+                        <li class="nav-a"><a href="about.html">About</a></li>
+                        <li class="nav-a"><a href="services.html">Services</a></li>
+                        <li class="nav-a"><a class="active" href="calculator.html">Kalkulyator</a></li>
+                        <li class="nav-a"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="connect col-6 col-lg-3 text-end order-2 order-lg-3">
+                    <div class="language">
+                        <i class="fa-solid fa-earth-europe"></i>
+                        <select name="lang" id="lang-dropdown">
+                            <option value="AZ" selected>AZ</option>
+                            <option value="EN">EN</option>
+                            <option value="RU">RU</option>
+                        </select>
+                    </div>
+                    <!-- <a href="#" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a> -->
+                    <a href="login.html" class="my-btn connect-btn d-none d-md-inline-flex">Hesab yarat</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero Banner -->
+        <section id="service-detail-intro">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="pages-name">
+                                <li class="page-name">
+                                    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+                                    <i class="fa-solid fa-chevron-right"></i> 
+                                </li>
+                                <li class="page-name">
+                                    <a href="index.html">Home</a>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </li>
+                                <li class="page-name">
+                                    <a href="calculator.html">Calculator</a>
+                                </li>
+                            </ul>
+                            <h2>Online Smeta Hesablayıcı</h2>
+                            <div class="bottom flex-column flex-md-row align-items-start align-items-md-end gap-3 mt-3">
+                                <p class="mb-0">Obyektinizin parametri və lazım olan mühəndislik sistemlərini seçərək büdcənizi öncədən planlaşdırın və birbaşa kommersiya təklifi sorğulayın.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Main Section -->
+        <section id="calculator-section" class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Left Side: Interactive Steps Form -->
+                    <div class="col-12 col-lg-8">
+                        <div class="calc-card">
+                            <!-- Step 1: Obyektin Təyinatı -->
+                            <div class="calc-step mb-5">
+                                <div class="step-header">
+                                    <span class="step-number">1</span>
+                                    <h4>Obyektinizin Növünü Seçin</h4>
+                                </div>
+                                <div class="row g-3 mt-2">
+                                    <div class="col-6 col-md-3">
+                                        <label class="calc-option-card w-100">
+                                            <input type="radio" name="building_type" value="office" checked onchange="calculateTotal()">
+                                            <div class="card-box">
+                                                <i class="fa-solid fa-building"></i>
+                                                <span>Ofis <br> Biznes Mərkəzi</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <label class="calc-option-card w-100">
+                                            <input type="radio" name="building_type" value="hotel" onchange="calculateTotal()">
+                                            <div class="card-box">
+                                                <i class="fa-solid fa-hotel"></i>
+                                                <span>Otel <br> Restoran</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <label class="calc-option-card w-100">
+                                            <input type="radio" name="building_type" value="industrial" onchange="calculateTotal()">
+                                            <div class="card-box">
+                                                <i class="fa-solid fa-industry"></i>
+                                                <span>Anbar <br> Sənaye</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <label class="calc-option-card w-100">
+                                            <input type="radio" name="building_type" value="residential" onchange="calculateTotal()">
+                                            <div class="card-box">
+                                                <i class="fa-solid fa-house-chimney"></i>
+                                                <span>Mənzil <br> Villa</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Obyektin Sahəsi -->
+                            <div class="calc-step mb-5">
+                                <div class="step-header">
+                                    <span class="step-number">2</span>
+                                    <h4>Obyektin Ümumi Sahəsi (m<sup>2</sup>)</h4>
+                                </div>
+                                <div class="range-wrapper mt-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-secondary fw-medium">Sahə:</span>
+                                        <div class="area-badge"><span id="area-val">250</span> m²</div>
+                                    </div>
+                                    <input type="range" class="form-range custom-range" id="area-range" min="30" max="5000" step="10" value="250" oninput="updateArea(this.value)">
+                                    <div class="d-flex justify-content-between text-muted small mt-1">
+                                        <span>30 m²</span>
+                                        <span>2500 m²</span>
+                                        <span>5000 m²</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Tələb Olunan Sistemlər -->
+                            <div class="calc-step">
+                                <div class="step-header">
+                                    <span class="step-number">3</span>
+                                    <h4>Tələb Olunan Zəif Axın Sistemləri</h4>
+                                </div>
+                                <div class="row g-3 mt-2">
+                                    <div class="col-12 col-md-6">
+                                        <label class="calc-checkbox-card">
+                                            <input type="checkbox" id="sys-fire" value="8" checked onchange="calculateTotal()">
+                                            <div class="checkbox-box">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <i class="fa-solid fa-fire-flame-curved text-danger fs-4"></i>
+                                                    <div>
+                                                        <h6>Yanğın Aşkarlama</h6>
+                                                        <p>Detektorlar, siren, adresli panel</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-circle-check check-icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="calc-checkbox-card">
+                                            <input type="checkbox" id="sys-cctv" value="10" checked onchange="calculateTotal()">
+                                            <div class="checkbox-box">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <i class="fa-solid fa-video text-primary fs-4"></i>
+                                                    <div>
+                                                        <h6>Video Təhlükəsizlik (CCTV)</h6>
+                                                        <p>IP kameralar, NVR arxivi, analitika</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-circle-check check-icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="calc-checkbox-card">
+                                            <input type="checkbox" id="sys-access" value="7" onchange="calculateTotal()">
+                                            <div class="checkbox-box">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <i class="fa-solid fa-fingerprint text-success fs-4"></i>
+                                                    <div>
+                                                        <h6>Girişə Nəzarət (ACS)</h6>
+                                                        <p>Biometrik keçid, turniketlər</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-circle-check check-icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="calc-checkbox-card">
+                                            <input type="checkbox" id="sys-it" value="12" onchange="calculateTotal()">
+                                            <div class="checkbox-box">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <i class="fa-solid fa-network-wired text-info fs-4"></i>
+                                                    <div>
+                                                        <h6>İT Şəbəkə & Wi-Fi</h6>
+                                                        <p>SKS Cat6, Fiber, server rack</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-circle-check check-icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="calc-checkbox-card">
+                                            <input type="checkbox" id="sys-sound" value="6" onchange="calculateTotal()">
+                                            <div class="checkbox-box">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <i class="fa-solid fa-bullhorn text-warning fs-4"></i>
+                                                    <div>
+                                                        <h6>Səsli Anons & Rabitə</h6>
+                                                        <p>EN54 təxliyyə və fon musiqisi</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-circle-check check-icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="calc-checkbox-card">
+                                            <input type="checkbox" id="sys-bms" value="15" onchange="calculateTotal()">
+                                            <div class="checkbox-box">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <i class="fa-solid fa-gears text-purple fs-4"></i>
+                                                    <div>
+                                                        <h6>Bina Avtomatlaşdırılması (BMS)</h6>
+                                                        <p>Enerji və iqlim idarəetməsi</p>
+                                                    </div>
+                                                </div>
+                                                <i class="fa-solid fa-circle-check check-icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Summary Card & Lead Form -->
+                    <div class="col-12 col-lg-4">
+                        <div class="sticky-top" style="top: 100px;z-index: 10;">
+                            <div class="summary-card">
+                                <h3>Texniki Qiymətləndirmə</h3>
+                                <p class="subtitle">Seçilmiş parametrlər əsasında ehtimal olunan ilkin büdcə:</p>
+                                
+                                <div class="price-box my-2">
+                                    <div class="d-flex align-items-baseline justify-content-center gap-2">
+                                        <span class="currency">₼</span>
+                                        <span id="estimated-price" class="amount">2,800 - 3,500</span>
+                                    </div>
+                                    <small class="text-white-50 block mt-1">*Materiallar və montaj daxil təxmini məbləğdir</small>
+                                </div>
+
+                                <ul class="summary-features list-unstyled">
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Lisenziyalı Mühəndis Layihələndirilməsi</li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Obyektə Pulsuz Yerində Baxış</li>
+                                    <li><i class="fa-solid fa-check text-success me-2"></i> Official Zəmanət vər 24/7 Dəstək</li>
+                                </ul>
+
+
+                                <h5>Dəqiq Kommersiya Təklifi Alın</h5>
+                                <form id="calc-lead-form" class="mt-3">
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control form-control-dark" placeholder="Adınız və Soyadınız" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="tel" class="form-control form-control-dark" placeholder="Telefon Nömrəniz" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="email" class="form-control form-control-dark" placeholder="E-poçt Ünvanınız">
+                                    </div>
+                                    <button type="submit" class="btn-elit-submit w-100">
+                                        Smeta Sorğusu Göndər <i class="fa-solid fa-paper-plane ms-2"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action -->
+        <section id="suggestion">
+            <div class="container">
+                <div class="suggestion row align-items-center g-3">
+                    <div class="col-12 col-lg-5 text-center text-lg-start">
+                        <div class="head-content">
+                            <h6>XÜSUSİ NORMATIVLƏR?</h6>
+                            <h4 class="mb-0">Mühəndislərimizlə birbaşa məsləhətləşin</h4>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 text-center text-lg-start">
+                        <p class="mb-0">Mürəkkəb sənaye obyektləri və ya xüsusi NFPA standartlı layihələr üçün bizə zəng edin.</p>
+                    </div>
+                    <div class="col-12 col-lg-3 text-center text-lg-end">
+                        <a href="tel:+994501234567" class="my-btn d-inline-flex">+994 50 123 45 67</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="logo mb-3">
+                            <a href="index.html">
+                            <img src="./images/logo.svg" alt="Fintex Logo" style="max-width: 150px;">
+                            </a>
+                        </div>
+                        <p class="footer-main-text">Zəif axın, yanğın aşkarlama, təhlükəsizlik və bina avtomatlaşdırma sistemləri</p>
+                        <ul class="socials">
+                            <li class="link"><a href="#"><img src="./images/instagram.svg" alt="Instagram"></a></li>
+                            <li class="link"><a href="#"><img src="./images/facebook.svg" alt="Facebook"></a></li>
+                            <li class="link"><a href="#"><img src="./images/linkedin.svg" alt="LinkedIn"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Sürətli keçidlər</p>
+                        <ul class="links">
+                            <li><a href="index.html"><span>&gt;</span>Ana səhifə</a></li>
+                            <li><a href="#"><span>&gt;</span>Haqqında</a></li>
+                            <li><a href="#"><span>&gt;</span>Xidmətlər</a></li>
+                            <li><a href="#"><span>&gt;</span>Məhsullar</a></li>
+                            <li><a href="#"><span>&gt;</span>Bloglar</a></li>
+                            <li><a href="#"><span>&gt;</span>Əlaqə</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Məhsullarımız</p>
+                        <ul class="links">
+                            <li><a href="#"><span>&gt;</span>Yanğın</a></li>
+                            <li><a href="#"><span>&gt;</span>Təhlükəsizlik</a></li>
+                            <li><a href="#"><span>&gt;</span>Rabitə</a></li>
+                            <li><a href="#"><span>&gt;</span>İT infrastrukturu</a></li>
+                            <li><a href="#"><span>&gt;</span>Audio-video</a></li>
+                            <li><a href="#"><span>&gt;</span>Avtomatlaşdırma</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Əlaqə məlumatlarımız</p>
+                        <ul class="links">
+                            <li>
+                                <a href="tel:+994501234567">
+                                    <img src="./images/phone-icon.svg" alt="Phone">
+                                    <span class="link-text">+994 50 123 45 67</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@fintex.az">
+                                    <img src="./images/mail-icon.svg" alt="Email">
+                                    <span class="link-text">info@fintex.az</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./images/location-icon.svg" alt="Location">
+                                    <span class="link-text">Baku, 1st Jidir, home 21</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 footer-bottom">
+                        <div class="row g-2 align-items-center w-100">
+                            <div class="col-12 col-md-4 text-center text-md-start">
+                                <p>© Copyright 2022 Fintex. All Rights Reserved</p>
+                            </div>
+                            <div class="col-12 col-md-4 footer-bottom-links justify-content-center my-2 my-md-0">
+                                <a href="#">Məxfilik siyasəti</a>
+                                <a href="#">İstifadə şərtləri</a>
+                                <a href="#">Sayt xəritəsi</a>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end">
+                                <p>Designed by "Design" in Azerbaijan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Calculator Dynamic Script -->
+    <script>
+        function updateArea(val) {
+            document.getElementById('area-val').innerText = val;
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const area = parseFloat(document.getElementById('area-range').value);
+            
+            // Obyekt əmsalları
+            const buildingTypeRadios = document.getElementsByName('building_type');
+            let buildingMultiplier = 1.0;
+            for (let radio of buildingTypeRadios) {
+                if (radio.checked) {
+                    if (radio.value === 'office') buildingMultiplier = 1.0;
+                    if (radio.value === 'hotel') buildingMultiplier = 1.35;
+                    if (radio.value === 'industrial') buildingMultiplier = 1.15;
+                    if (radio.value === 'residential') buildingMultiplier = 0.9;
+                    break;
+                }
+            }
+
+            // Seçilmiş sistemlərin m2 üzrə orta tarifi (AZN)
+            let baseRate = 0;
+            if (document.getElementById('sys-fire').checked) baseRate += parseFloat(document.getElementById('sys-fire').value);
+            if (document.getElementById('sys-cctv').checked) baseRate += parseFloat(document.getElementById('sys-cctv').value);
+            if (document.getElementById('sys-access').checked) baseRate += parseFloat(document.getElementById('sys-access').value);
+            if (document.getElementById('sys-it').checked) baseRate += parseFloat(document.getElementById('sys-it').value);
+            if (document.getElementById('sys-sound').checked) baseRate += parseFloat(document.getElementById('sys-sound').value);
+            if (document.getElementById('sys-bms').checked) baseRate += parseFloat(document.getElementById('sys-bms').value);
+
+            if (baseRate === 0) {
+                document.getElementById('estimated-price').innerText = "0";
+                return;
+            }
+
+            // İerarxik hesablama düsturu
+            let rawPrice = area * baseRate * buildingMultiplier;
+            
+            // Minumum başlanğıc smeta limiti
+            if (rawPrice < 450) rawPrice = 450;
+
+            let minPrice = Math.round(rawPrice * 0.85);
+            let maxPrice = Math.round(rawPrice * 1.15);
+
+            // Rəqəmlərin formatlanması (məs: 2,500 - 3,200)
+            let formattedMin = minPrice.toLocaleString('en-US');
+            let formattedMax = maxPrice.toLocaleString('en-US');
+
+            document.getElementById('estimated-price').innerText = `${formattedMin} - ${formattedMax}`;
+        }
+
+        // İlkin yüklənmədə hesabla
+        document.addEventListener('DOMContentLoaded', calculateTotal);
+    </script>
+</body>
+</html>

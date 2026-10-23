@@ -16,34 +16,35 @@
     <link rel="stylesheet" href="./css/a2.css">
 </head>
 <body>
-    <header id="header" class="services">
+    <!-- Header -->
+    <header id="header" class="services sticky-top">
         <div class="container header">
             <div class="row align-items-center g-3">
                 <div class="logo col-6 col-lg-2 text-start">
                     <a href="index.html">
-                    <img src="./images/logo.svg" alt="Fintex Logo" class="img-fluid">
+                        <img src="./images/logo.svg" alt="Fintex Logo" class="img-fluid">   
                     </a>
                 </div>
                 <div class="navs col-12 col-lg-7 order-3 order-lg-2">
                     <ul class="navs-ul">
-                        <li class="nav-a"><a class="active" href="#">Home</a></li>
-                        <li class="nav-a"><a href="#">About</a></li>
-                        <li class="nav-a"><a href="#">Services</a></li>
-                        <li class="nav-a"><a href="#">Blogs</a></li>
-                        <li class="nav-a"><a href="#">Contact</a></li>
+                        <li class="nav-a"><a href="index.html">Home</a></li>
+                        <li class="nav-a"><a href="about.html">About</a></li>
+                        <li class="nav-a"><a class="active" href="services.html">Services</a></li>
+                        <li class="nav-a"><a href="calculator.html">Kalkulyator</a></li>
+                        <li class="nav-a"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="connect col-6 col-lg-3 text-end order-2 order-lg-3">
-                    <a href="#" class="language">
+                    <div class="language">
                         <i class="fa-solid fa-earth-europe"></i>
                         <select name="lang" id="lang-dropdown">
-                            <option value="AZ">AZ</option>
-                            <option value="EN" selected>EN</option>
+                            <option value="AZ" selected>AZ</option>
+                            <option value="EN">EN</option>
                             <option value="RU">RU</option>
                         </select>
-                    </a>
-                    <a href="#" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    <a href="#" class="my-btn connect-btn d-none d-md-inline-flex">Əlaqə saxla</a>
+                    </div>
+                    <!-- <a href="#" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a> -->
+                    <a href="login.html" class="my-btn connect-btn d-none d-md-inline-flex">Hesab yarat</a>
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
     <main>
         <!-- Intro Section -->
         <section id="service-detail-intro">
-            <div class="container-fluid py-4 py-md-5">
+            <div class="container-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -149,10 +150,10 @@
                             <div class="quick-contact-card">
                                 <h3>Suallarınız var?</h3>
                                 <p>Mütəxəssislərimiz sizə kömək etməyə hazırdır.</p>
-                                <form class="contact-form">
-                                <input type="text" placeholder="Adınız və Soyadınız" required>
-                                <input type="tel" placeholder="Telefon nömrəniz" required>
-                                <button type="submit" class="btn-submit">Göndərin →</button>
+                                <form class="contact-form" id="form">
+                               <input type="text" name="name" placeholder="Adınız və Soyadınız" required autocomplete="name">
+                                    <input type="tel" name="tel" placeholder="Telefon nömrəniz" required autocomplete="tel">
+                                    <button type="submit" class="btn-submit">Göndərin →</button>
                                 </form>
                             </div>
                         </aside>

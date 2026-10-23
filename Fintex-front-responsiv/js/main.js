@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-            header.classList.add("header-scrolled");
+            header?.classList.add("header-scrolled");
         } else {
-            header.classList.remove("header-scrolled");
+            header?.classList.remove("header-scrolled");
         }
     });
 
@@ -77,4 +77,42 @@ document.addEventListener("DOMContentLoaded", () => {
             // Dil dəyişmə məntiqi bura əlavə oluna bilər
         });
     }
+
+
+    // Index page image make bigger
+    var img = document.querySelector("#documents .document .overlay");
+    var bigImgDiv = document.querySelector("#documents .big-image");
+    var bigImg = document.querySelector("#documents .big-image img");
+
+    img?.addEventListener("click",function(){
+        bigImgDiv.style.visibility = "visible";
+    })
+    bigImg?.addEventListener("click",function(e){
+        e.stopPropagation();
+    })
+    bigImgDiv?.addEventListener("click",function(e){
+       if (e.target === this) {
+        this.style.visibility = "hidden";
+    }
+    })
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const drawer = document.getElementById('fintexSidebar');
+    const overlay = document.getElementById('burgerOverlay');
+    const closeBtn = document.getElementById('drawerCloseBtn');
+
+    function toggleBurgerMenu() {
+        burgerBtn.classList.toggle('active');
+        drawer.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    }
+
+    if (burgerBtn) burgerBtn.addEventListener('click', toggleBurgerMenu);
+    if (closeBtn) closeBtn.addEventListener('click', toggleBurgerMenu);
+    if (overlay) overlay.addEventListener('click', toggleBurgerMenu);
+});
+
+

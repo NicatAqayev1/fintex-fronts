@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintex - Zəif Axın və Mühafizə Sistemləri</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/a2.css">
+</head>
+<style>
+    /* ==========================================
+MODERN ANIMATED BURGER MENU STYLES
+========================================== */
+
+/* Burger Button */
+.burger-menu-btn {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1060;
+    padding: 0;
+}
+
+.burger-menu-btn:hover {
+    background: rgba(58, 134, 255, 0.15);
+    border-color: rgba(58, 134, 255, 0.4);
+}
+
+.burger-line {
+    width: 20px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Burger Active Animation (Transforms to 'X') */
+.burger-menu-btn.active .line-1 {
+    transform: translateY(7px) rotate(45deg);
+}
+.burger-menu-btn.active .line-2 {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+.burger-menu-btn.active .line-3 {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay Background */
+.burger-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1045;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.burger-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Slide-out Navigation Drawer */
+.burger-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 320px;
+    height: 100vh;
+    background: linear-gradient(165deg, #0b132b 0%, #1c2541 100%);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 24px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.burger-nav-drawer.active {
+    right: 0;
+}
+
+/* Drawer Header */
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawer-close-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: none;
+    color: #94a3b8;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.drawer-close-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+/* Drawer Body */
+.drawer-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.drawer-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #64748b;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.drawer-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer-menu-list li {
+    margin-bottom: 8px;
+}
+
+.drawer-menu-list li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+.drawer-menu-list li a:hover {
+    background: rgba(58, 134, 255, 0.12);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Drawer Footer */
+.drawer-footer {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+</style>
+<body>
+    <!-- Modern Animated Burger Trigger (Burger Düyməsi) -->
+<button class="burger-menu-btn" id="burgerMenuBtn" aria-label="Toggle Menu">
+    <span class="burger-line line-1"></span>
+    <span class="burger-line line-2"></span>
+    <span class="burger-line line-3"></span>
+</button>
+
+<!-- Full-Screen / Overlay Navigation Drawer (Açılan Menyu Paneli) -->
+<div class="burger-overlay" id="burgerOverlay"></div>
+<nav class="burger-nav-drawer" id="burgerNavDrawer">
+    <div class="drawer-header">
+        <div class="drawer-brand">
+            <img src="./images/logo.svg" alt="Fintex" style="max-width: 120px; filter: brightness(0) invert(1);">
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div class="drawer-body">
+        <span class="drawer-label">Naviqasiya</span>
+        <ul class="drawer-menu-list">
+            <li><a href="index.html"><i class="fa-solid fa-house me-2"></i> Ana Səhifə</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info me-2"></i> Haqqımızda</a></li>
+            <li><a href="services.html"><i class="fa-solid fa-layer-group me-2"></i> Xidmətlər</a></li>
+            <li><a href="calculator.html"><i class="fa-solid fa-calculator me-2"></i> Smeta Kalkulyatoru</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-headset me-2"></i> Əlaqə & Dəstək</a></li>
+        </ul>
+
+        <span class="drawer-label mt-4">Xüsusi Bölmələr</span>
+        <ul class="drawer-menu-list">
+            <li><a href="service-detail1.html"><i class="fa-solid fa-fire-flame-curved text-danger me-2"></i> Yanğın Aşkarlama</a></li>
+            <li><a href="service-detail3.html"><i class="fa-solid fa-video text-primary me-2"></i> Video Təhlükəsizlik</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket text-info me-2"></i> Şəxsi Kabinet Girişi</a></li>
+        </ul>
+    </div>
+
+    <div class="drawer-footer">
+        <p class="small text-white-50 mb-0">© 2026 Fintex MMC</p>
+    </div>
+</nav>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const drawer = document.getElementById('burgerNavDrawer');
+    const overlay = document.getElementById('burgerOverlay');
+    const closeBtn = document.getElementById('drawerCloseBtn');
+
+    function toggleBurgerMenu() {
+        burgerBtn.classList.toggle('active');
+        drawer.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    }
+
+    if (burgerBtn) burgerBtn.addEventListener('click', toggleBurgerMenu);
+    if (closeBtn) closeBtn.addEventListener('click', toggleBurgerMenu);
+    if (overlay) overlay.addEventListener('click', toggleBurgerMenu);
+});
+</script>
+</html>

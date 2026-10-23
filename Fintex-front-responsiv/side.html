@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintex - Zəif Axın və Mühafizə Sistemləri</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/a2.css">
+</head>
+<style>
+    /* ==========================================
+MODERN ELITE SIDEBAR STYLES
+========================================== */
+
+.fintex-sidebar {
+    width: 280px;
+    background: linear-gradient(165deg, #0b132b 0%, #1c2541 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(11, 19, 43, 0.25);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Sidebar Header & User Card */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3a86ff 0%, #2563eb 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(58, 134, 255, 0.35);
+    flex-shrink: 0;
+}
+
+.user-info .user-name {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.user-info .user-role {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Toggle Collapse Button */
+.sidebar-toggle-btn {
+    position: absolute;
+    top: 24px;
+    right: -14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #3a86ff;
+    color: #ffffff;
+    border: 2px solid #0b132b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar-toggle-btn:hover {
+    background: #00f5d4;
+    color: #0b132b;
+    transform: scale(1.1);
+}
+
+/* Section Labels */
+.nav-section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #64748b;
+    margin: 18px 0 8px 12px;
+}
+
+/* Menu Items & Links */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    margin-bottom: 4px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-icon {
+    font-size: 1.1rem;
+    width: 22px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-text {
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover & Active States */
+.menu-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.menu-link:hover .menu-icon {
+    transform: scale(1.15);
+}
+
+.menu-link.active {
+    background: linear-gradient(90deg, rgba(58, 134, 255, 0.2) 0%, rgba(58, 134, 255, 0.05) 100%);
+    border-left: 3px solid #3a86ff;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.menu-link.active .menu-icon {
+    color: #3a86ff;
+}
+
+/* Badge Mini */
+.badge-mini {
+    margin-left: auto;
+    background: linear-gradient(90deg, #a60000, #d32f2f);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+/* Footer Status */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.support-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(0, 245, 212, 0.08);
+    border: 1px solid rgba(0, 245, 212, 0.2);
+    border-radius: 30px;
+}
+
+.support-status .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00f5d4;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00f5d4;
+    animation: pulseGlow 1.8s infinite;
+}
+
+.support-status .status-text {
+    color: #00f5d4;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ==========================================
+COLLAPSED SIDEBAR STATE (Yığılmış Vəziyyət)
+========================================== */
+.fintex-sidebar.collapsed {
+    width: 80px;
+}
+
+.fintex-sidebar.collapsed .user-info,
+.fintex-sidebar.collapsed .nav-section-label,
+.fintex-sidebar.collapsed .menu-text,
+.fintex-sidebar.collapsed .badge-mini,
+.fintex-sidebar.collapsed .status-text {
+    display: none !important;
+}
+
+.fintex-sidebar.collapsed .sidebar-header {
+    justify-content: center;
+}
+
+.fintex-sidebar.collapsed .menu-link {
+    justify-content: center;
+    padding: 12px;
+}
+
+.fintex-sidebar.collapsed .menu-link:hover {
+    transform: none;
+}
+
+.fintex-sidebar.collapsed .sidebar-toggle-btn {
+    transform: rotate(180deg);
+}
+
+.fintex-sidebar.collapsed .support-status {
+    justify-content: center;
+    padding: 8px;
+}
+</style>
+<body>
+    <!-- Modern Elit Sidebar Start -->
+<aside class="fintex-sidebar" id="fintexSidebar">
+    <!-- Sidebar Toggle (Yığma/Açma Düyməsi) -->
+    <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Menyunu dəyiş">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Header / User Info -->
+    <div class="sidebar-header">
+        <div class="user-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div class="user-info">
+            <h6 class="user-name">Fintex Portal</h6>
+            <span class="user-role">Sistem İnteqratoru</span>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+        <div class="nav-section-label">Əsas Bölmələr</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="index.html" class="menu-link active">
+                    <i class="menu-icon fa-solid fa-house"></i>
+                    <span class="menu-text">Ana Səhifə</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="about.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-circle-info"></i>
+                    <span class="menu-text">Haqqımızda</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="calculator.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-calculator"></i>
+                    <span class="menu-text">Smeta Kalkulyatoru</span>
+                    <span class="badge-mini">Yeni</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-label">Xidmətlər Portfeli</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="service-detail1.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-fire-flame-curved text-danger"></i>
+                    <span class="menu-text">Yanğın Aşkarlama</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail3.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-video text-primary"></i>
+                    <span class="menu-text">Video Təhlükəsizlik</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail4.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-fingerprint text-success"></i>
+                    <span class="menu-text">Giriş və Mühafizə</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail6.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-network-wired text-info"></i>
+                    <span class="menu-text">İT İnfrastrukturu</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail8.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-gears text-warning"></i>
+                    <span class="menu-text">Avtomatlaşdırma (BMS)</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-label">Dəstək & Əlaqə</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="contact.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-headset"></i>
+                    <span class="menu-text">Əlaqə & Dəstək</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="login.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-right-to-bracket"></i>
+                    <span class="menu-text">Şəxsi Kabinet</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar Footer / Status Card -->
+    <div class="sidebar-footer">
+        <div class="support-status">
+            <span class="status-dot"></span>
+            <span class="status-text">24/7 Texniki Dəstək Onlayn</span>
+        </div>
+    </div>
+</aside>
+<!-- Modern Elit Sidebar End -->
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.getElementById('fintexSidebar');
+    const toggleBtn = document.getElementById('sidebarToggleBtn');
+
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed');
+        });
+    }
+});
+</script>
+</html>

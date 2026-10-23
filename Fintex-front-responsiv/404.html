@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Səhifə Tapılmadı | Fintex</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/a2.css">
+</head>
+<style>
+    /* ==========================================
+404 ERROR PAGE STYLES
+========================================== */
+section{
+    background: none;
+}
+.error-page-body {
+  background: #050a14;
+  color: #ffffff;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-404-section {
+  position: relative;
+  width: 100%;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* Glow Background Effects */
+.error-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.error-glow.orb-1 {
+  width: 400px;
+  height: 400px;
+  top: -10%;
+  left: -5%;
+  background: #3a86ff;
+}
+
+.error-glow.orb-2 {
+  width: 400px;
+  height: 400px;
+  bottom: -10%;
+  right: -5%;
+  background: #a60000;
+}
+
+/* Error Code Styling */
+.error-code-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.error-code {
+  font-size: clamp(6rem, 15vw, 11rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffffff 0%, #3a86ff 50%, #a60000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.signal-line {
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #3a86ff, #a60000, transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 15px #3a86ff;
+}
+
+.error-title {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.error-desc {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  max-width: 620px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+/* Buttons */
+.btn-error-primary {
+  background: linear-gradient(90deg, #a60000 0%, #d32f2f 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 12px 30px !important;
+  font-weight: 600 !important;
+  border-radius: 30px !important;
+  box-shadow: 0 8px 25px rgba(166, 0, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-error-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(166, 0, 0, 0.6) !important;
+}
+
+.btn-error-outline {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  padding: 12px 30px !important;
+  font-weight: 600 !important;
+  border-radius: 30px !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-error-outline:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Quick Links Card */
+.quick-links-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 22px 28px;
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quick-links-card h6 {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.quick-links-card a {
+  color: #94a3b8;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.quick-links-card a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+</style>
+<body class="error-page-body">
+
+    <section class="error-404-section">
+        <!-- Background Glow Effects -->
+        <div class="error-glow orb-1"></div>
+        <div class="error-glow orb-2"></div>
+
+        <div class="container text-center position-relative z-2">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <!-- Brand Logo -->
+                    <div class="mb-4">
+                        <a href="index.html">
+                            <img src="./images/logo.svg" alt="Fintex Logo" style="max-width: 170px; filter: brightness(0) invert(1);">
+                        </a>
+                    </div>
+
+                    <!-- Animated 404 Illustration / Badge -->
+                    <div class="error-code-wrapper">
+                        <h1 class="error-code">404</h1>
+                        <div class="signal-line"></div>
+                    </div>
+
+                    <!-- Title & Description -->
+                    <h2 class="error-title">Səhifə Tapılmadı və ya Yeri Dəyişdirilib</h2>
+                    <p class="error-desc">
+                        Axtardığınız səhifə mövcud deyil, ünvan yanlış daxil edilib və ya texniki yenilənmə səbəbindən silinmiş ola bilər. Narahat olmayın, aşağıdakı keçidlərlə davam edə bilərsiniz.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3 my-4">
+                        <a href="index.html" class="my-btn btn-error-primary">
+                            <i class="fa-solid fa-house me-2"></i> Ana Səhifəyə Qayıt
+                        </a>
+                        <a href="contact.html" class="my-btn btn-error-outline">
+                            <i class="fa-solid fa-headset me-2"></i> Dəstək Xidməti
+                        </a>
+                    </div>
+
+                    <!-- Quick Navigation Links -->
+                    <div class="quick-links-card mt-5">
+                        <h6>Sizə Lazım Ola Biləcək Bölmələr:</h6>
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                            <a href="about.html"><i class="fa-solid fa-chevron-right text-danger me-1"></i> Haqqımızda</a>
+                            <a href="service-detail1.html"><i class="fa-solid fa-chevron-right text-danger me-1"></i> Xidmətlər</a>
+                            <a href="calculator.html"><i class="fa-solid fa-chevron-right text-danger me-1"></i> Smeta Kalkulyatoru</a>
+                            <a href="contact.html"><i class="fa-solid fa-chevron-right text-danger me-1"></i> Əlaqə</a>
+                        </div>
+                    </div>
+
+                    <!-- Footer Note -->
+                    <p class="small text-white-50 mt-5 mb-0">© 2026 Fintex MMC. Bütün hüquqlar qorunur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
