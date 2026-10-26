@@ -15,226 +15,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/a2.css">
 </head>
-<style>
-    /* ==========================================
-ABOUT PAGE CUSTOM STYLES
-========================================== */
-
-/* Overview Image Wrapper */
-.about-image-wrapper {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(3, 72, 103, 0.12);
-}
-
-.about-image-wrapper .main-img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.about-image-wrapper .experience-badge {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  background: rgba(3, 72, 103, 0.9);
-  backdrop-filter: blur(10px);
-  color: white;
-  padding: 20px 25px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.about-image-wrapper .experience-badge h3 {
-  font-size: 32px;
-  font-weight: 800;
-  margin: 0;
-  color: var(--secondary-light-color);
-}
-
-.about-image-wrapper .experience-badge p {
-  font-size: 12px;
-  margin: 0;
-  color: #e2e8f0;
-}
-
-/* Feature Cards */
-.about-feature-card {
-  background: white;
-  padding: 18px;
-  border-radius: 14px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-fast);
-}
-
-.about-feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-color);
-}
-
-.about-feature-card i {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.about-feature-card h5 {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 5px;
-}
-
-.about-feature-card p {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin: 0;
-}
-
-/* Value Cards (Mission & Vision) */
-.value-card {
-  background: var(--bg-main);
-  padding: 35px 25px;
-  border-radius: 18px;
-  border: 1px solid var(--border-color);
-  height: 100%;
-  transition: var(--transition-fast);
-  text-align: center;
-}
-
-.value-card:hover {
-  background: white;
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(3, 72, 103, 0.08);
-  border-color: var(--primary-color);
-}
-
-.value-card .icon-box {
-  width: 60px;
-  height: 60px;
-  background: var(--bg-light-blue);
-  color: var(--primary-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin: 0 auto 20px auto;
-  transition: var(--transition-fast);
-}
-
-.value-card:hover .icon-box {
-  background: var(--primary-color);
-  color: white;
-}
-
-.value-card h5 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 12px;
-}
-
-.value-card p {
-  font-size: 14px;
-  color: var(--text-slate-light);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Timeline Section */
-.timeline {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  background-color: var(--border-color);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -1.5px;
-}
-
-.timeline-item {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  right: -8px;
-  background-color: white;
-  border: 4px solid var(--secondary-color);
-  top: 20px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.left { left: 0; }
-.right { left: 50%; }
-
-.right::after { left: -8px; }
-
-.timeline-content {
-  padding: 22px 25px;
-  background-color: white;
-  position: relative;
-  border-radius: 14px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-}
-
-.timeline-content .year {
-  display: inline-block;
-  padding: 4px 12px;
-  background: var(--bg-soft-blue);
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 12px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
-
-.timeline-content h5 {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 6px;
-}
-
-.timeline-content p {
-  font-size: 13px;
-  color: var(--text-slate);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Responsive Timeline */
-@media (max-width: 767px) {
-  .timeline::after { left: 31px; }
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-  .timeline-item::after { left: 23px; }
-  .right { left: 0%; }
-}
-</style>
 <body>
 
     <!-- Modern Animated Burger Trigger (Burger Düyməsi) -->
@@ -349,11 +129,11 @@ ABOUT PAGE CUSTOM STYLES
                 </div>
                 <div class="navs col-12 col-lg-7 order-3 order-lg-2">
                     <ul class="navs-ul">
-                        <li class="nav-a"><a href="index.html">Home</a></li>
-                        <li class="nav-a"><a class="active" href="about.html">About</a></li>
-                        <li class="nav-a"><a href="service-detail1.html">Services</a></li>
-                        <li class="nav-a"><a href="#">Blogs</a></li>
-                        <li class="nav-a"><a href="#">Contact</a></li>
+                        <li class="nav-a"><a href="index.html">Ana səhifə</a></li>
+                        <li class="nav-a"><a class="active" href="about.html">Haqqımızda</a></li>
+                        <li class="nav-a"><a href="services.html">Xidmətlər</a></li>
+                        <li class="nav-a"><a href="calculator.html">Kalkulyator</a></li>
+                        <li class="nav-a"><a href="contact.html">Əlaqə</a></li>
                     </ul>
                 </div>
                 <div class="connect col-6 col-lg-3 text-end order-2 order-lg-3">
@@ -366,7 +146,7 @@ ABOUT PAGE CUSTOM STYLES
                         </select>
                     </a>
                     <!-- <a href="#" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a> -->
-                    <a href="#" class="my-btn connect-btn d-none d-md-inline-flex">Əlaqə saxla</a>
+                    <a href="#" class="my-btn connect-btn d-none d-md-inline-flex">Hesab yarat</a>
                 </div>
             </div>
         </div>
@@ -379,7 +159,7 @@ ABOUT PAGE CUSTOM STYLES
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <ul class="pages-name">
+                            <!-- <ul class="pages-name">
                                 <li class="page-name">
                                     <a href="index.html"><i class="fa-solid fa-house"></i></a>
                                     <i class="fa-solid fa-chevron-right"></i> 
@@ -391,7 +171,7 @@ ABOUT PAGE CUSTOM STYLES
                                 <li class="page-name">
                                     <a href="about.html">About Us</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <h2>Mühəndislikdə etibarlı tərəfdaşınız</h2>
                             <div class="bottom flex-column flex-md-row align-items-start align-items-md-end gap-3 mt-3">
                                 <p class="mb-0">Fintex MMC — müasir obyektlərin təhlükəsizlik, zəif axın və avtomatlaşdırma infrastrukturlarını beynəlxalq standartlara uyğun layihələndirən və icra edən aparıcı sistem inteqratorudur.</p>
@@ -436,7 +216,7 @@ ABOUT PAGE CUSTOM STYLES
                     </div>
                     <div class="col-lg-6">
                         <div class="about-image-wrapper">
-                            <img src="./images/intro-big2.png" alt="Fintex Komandası" class="img-fluid main-img">
+                            <img src="./images/intro-big3.png" alt="Fintex Komandası" class="img-fluid main-img">
                             <div class="experience-badge">
                                 <h3>10+</h3>
                                 <p>İllik Təcrübə və Peşəkarlıq</p>

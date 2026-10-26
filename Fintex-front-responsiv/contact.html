@@ -15,175 +15,109 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/a2.css">
 </head>
-<style>
-    /* ==========================================
-CONTACT PAGE ELITE STYLES
-========================================== */
-
-/* Info Cards Header */
-.contact-info-card {
-  background: white;
-  padding: 30px 22px;
-  border-radius: 18px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-bounce);
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.contact-info-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(3, 72, 103, 0.12);
-  border-color: var(--primary-color);
-}
-
-.contact-info-card .icon-wrapper {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--bg-soft-blue);
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  margin-bottom: 20px;
-  transition: var(--transition-fast);
-}
-
-.contact-info-card:hover .icon-wrapper {
-  background: var(--primary-color);
-  color: white;
-}
-
-.contact-info-card h5 {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-
-.contact-info-card p {
-  font-size: 13px;
-  color: var(--text-slate-light);
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.contact-info-card .card-link {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--secondary-color);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: var(--transition-fast);
-}
-
-.contact-info-card .card-link:hover {
-  gap: 10px;
-  color: var(--primary-hover-color);
-}
-
-.status-badge-online {
-  font-size: 11px;
-  color: #10b981;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #ecfdf5;
-  padding: 4px 10px;
-  border-radius: 20px;
-  width: fit-content;
-}
-
-.status-badge-online i {
-  font-size: 8px;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-
-/* Contact Form Styling */
-.contact-form-card {
-  background: var(--bg-main);
-  padding: 40px;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-}
-
-.contact-form-card .form-control,
-.contact-form-card .form-select {
-  border-radius: 12px;
-  border: 1.5px solid var(--border-color);
-  font-size: 14px;
-  color: var(--text-dark);
-}
-
-.contact-form-card .form-control:focus,
-.contact-form-card .form-select:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(3, 72, 103, 0.1);
-}
-
-.contact-form-card label {
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-.btn-contact-submit {
-  background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-hover-color) 100%);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 14px 28px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: var(--transition-fast);
-  box-shadow: 0 10px 20px rgba(3, 72, 103, 0.2);
-}
-
-.btn-contact-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 25px rgba(3, 72, 103, 0.3);
-  color: white;
-}
-
-/* Map Section Wrapper */
-.map-wrapper {
-  position: relative;
-  min-height: 420px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-}
-
-.map-overlay-card {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(6, 29, 54, 0.88);
-  backdrop-filter: blur(12px);
-  padding: 18px 24px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-</style>
 <body>
 
+    <!-- Modern Animated Burger Trigger (Burger Düyməsi) -->
+<button class="burger-menu-btn" id="burgerMenuBtn" aria-label="Toggle Menu">
+    <span class="burger-line line-1"></span>
+    <span class="burger-line line-2"></span>
+    <span class="burger-line line-3"></span>
+</button>
+
+<div class="burger-overlay" id="burgerOverlay"></div>
+  <!-- Modern Elit Sidebar Start -->
+<aside class="fintex-sidebar burger-nav-drawer" id="fintexSidebar">
+
+    <!-- Header / User Info -->
+    <div class="sidebar-header">
+        <div class="user-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div class="user-info">
+            <h6 class="user-name">Fintex Portal</h6>
+            <span class="user-role">Sistem İnteqratoru</span>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+        <div class="nav-section-label">Əsas Bölmələr</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="index.html" class="menu-link active">
+                    <i class="menu-icon fa-solid fa-house"></i>
+                    <span class="menu-text">Ana Səhifə</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="about.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-circle-info"></i>
+                    <span class="menu-text">Haqqımızda</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="calculator.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-calculator"></i>
+                    <span class="menu-text">Smeta Kalkulyatoru</span>
+                    <span class="badge-mini">Yeni</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-label">Xidmətlər Portfeli</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="service-detail1.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-fire-flame-curved text-danger"></i>
+                    <span class="menu-text">Yanğın Aşkarlama</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail3.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-video text-primary"></i>
+                    <span class="menu-text">Video Təhlükəsizlik</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail6.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-network-wired text-info"></i>
+                    <span class="menu-text">İT İnfrastrukturu</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail8.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-gears text-warning"></i>
+                    <span class="menu-text">Avtomatlaşdırma (BMS)</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-label">Dəstək & Əlaqə</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="contact.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-headset"></i>
+                    <span class="menu-text">Əlaqə & Dəstək</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="login.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-right-to-bracket"></i>
+                    <span class="menu-text">Şəxsi Kabinet</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar Footer / Status Card -->
+    <div class="sidebar-footer">
+        <div class="support-status">
+            <span class="status-dot"></span>
+            <span class="status-text">24/7 Texniki Dəstək Onlayn</span>
+        </div>
+    </div>
+</aside>
+<!-- Modern Elit Sidebar End -->
     <!-- Header -->
     <header id="header" class="services sticky-top">
         <div class="container header">
@@ -195,29 +129,28 @@ CONTACT PAGE ELITE STYLES
                 </div>
                 <div class="navs col-12 col-lg-7 order-3 order-lg-2">
                     <ul class="navs-ul">
-                        <li class="nav-a"><a href="index.html">Home</a></li>
-                        <li class="nav-a"><a href="about.html">About</a></li>
-                        <li class="nav-a"><a href="services.html">Services</a></li>
+                        <li class="nav-a"><a href="index.html">Ana səhifə</a></li>
+                        <li class="nav-a"><a href="about.html">Haqqımızda</a></li>
+                        <li class="nav-a"><a href="services.html">Xidmətlər</a></li>
                         <li class="nav-a"><a href="calculator.html">Kalkulyator</a></li>
-                        <li class="nav-a"><a class="active" href="contact.html">Contact</a></li>
+                        <li class="nav-a"><a class="active" href="contact.html">Əlaqə</a></li>
                     </ul>
                 </div>
                 <div class="connect col-6 col-lg-3 text-end order-2 order-lg-3">
-                    <div class="language">
+                    <a href="#" class="language">
                         <i class="fa-solid fa-earth-europe"></i>
                         <select name="lang" id="lang-dropdown">
                             <option value="AZ" selected>AZ</option>
                             <option value="EN">EN</option>
                             <option value="RU">RU</option>
                         </select>
-                    </div>
+                    </a>
                     <!-- <a href="#" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a> -->
                     <a href="login.html" class="my-btn connect-btn d-none d-md-inline-flex">Hesab yarat</a>
                 </div>
             </div>
         </div>
     </header>
-
     <main>
         <!-- Page Hero Banner -->
         <section id="service-detail-intro">
@@ -225,7 +158,7 @@ CONTACT PAGE ELITE STYLES
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <ul class="pages-name">
+                            <!-- <ul class="pages-name">
                                 <li class="page-name">
                                     <a href="index.html"><i class="fa-solid fa-house"></i></a>
                                     <i class="fa-solid fa-chevron-right"></i> 
@@ -237,7 +170,7 @@ CONTACT PAGE ELITE STYLES
                                 <li class="page-name">
                                     <a href="contact.html">Contact Us</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             
                             <h2>Bizimlə Əlaqə Saxlayın</h2>
                             <div class="bottom flex-column flex-md-row align-items-start align-items-md-end gap-3 mt-3">
@@ -472,7 +405,7 @@ CONTACT PAGE ELITE STYLES
             </div>
         </div>
     </footer>
-
+<script src="js/main.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
