@@ -15,8 +15,107 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/a2.css">
 </head>
-<body class="error-page-body">
+<body class="error-page-body show-burger-menu">
+    <!-- Modern Animated Burger Trigger (Burger Düyməsi) -->
+<button class="burger-menu-btn" id="burgerMenuBtn" aria-label="Toggle Menu">
+    <span class="burger-line line-1"></span>
+    <span class="burger-line line-2"></span>
+    <span class="burger-line line-3"></span>
+</button>
+<div class="burger-overlay" id="burgerOverlay"></div>
+  <!-- Modern Elit Sidebar Start -->
+<aside class="fintex-sidebar burger-nav-drawer" id="fintexSidebar">
 
+    <!-- Header / User Info -->
+    <div class="sidebar-header">
+        <!-- <div class="user-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+        </div> -->
+        <a href="index.html" class="user-info">
+            <img src="./images/logo.svg" alt="" style="height: 50px;">
+            <!-- <h6 class="user-name">Fintex</h6> -->
+            <!-- <span class="user-role">Sistem İnteqratoru</span> -->
+        </a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+        <div class="nav-section-label">Əsas Bölmələr</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="index.html" class="menu-link active">
+                    <i class="menu-icon fa-solid fa-house"></i>
+                    <span class="menu-text">Ana Səhifə</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="about.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-circle-info"></i>
+                    <span class="menu-text">Haqqımızda</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="calculator.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-calculator"></i>
+                    <span class="menu-text">Smeta Kalkulyatoru</span>
+                    <span class="badge-mini">Yeni</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-label">Xidmətlər Portfeli</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="service-detail1.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-fire-flame-curved text-danger"></i>
+                    <span class="menu-text">Yanğın Aşkarlama</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail3.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-video text-primary"></i>
+                    <span class="menu-text">Video Təhlükəsizlik</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail6.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-network-wired text-info"></i>
+                    <span class="menu-text">İT İnfrastrukturu</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="service-detail8.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-gears text-warning"></i>
+                    <span class="menu-text">Avtomatlaşdırma (BMS)</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-section-label">Dəstək & Əlaqə</div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="contact.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-headset"></i>
+                    <span class="menu-text">Əlaqə & Dəstək</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="login.html" class="menu-link">
+                    <i class="menu-icon fa-solid fa-right-to-bracket"></i>
+                    <span class="menu-text">Şəxsi Kabinet</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar Footer / Status Card -->
+    <div class="sidebar-footer">
+        <div class="support-status">
+            <span class="status-dot"></span>
+            <span class="status-text">24/7 Texniki Dəstək Onlayn</span>
+        </div>
+    </div>
+</aside>
     <section class="error-404-section">
         <!-- Background Glow Effects -->
         <div class="error-glow orb-1"></div>

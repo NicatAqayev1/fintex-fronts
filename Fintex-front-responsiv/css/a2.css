@@ -1380,6 +1380,9 @@ MODERN ANIMATED BURGER MENU STYLES
     top: 20px;
     right: 20px;
 }
+.show-burger-menu .burger-menu-btn{
+  display: flex;
+}
 @media (max-width: 992px) {
   .burger-menu-btn{
     display: flex;
@@ -1863,7 +1866,7 @@ COLLAPSED SIDEBAR STATE (Yığılmış Vəziyyət)
             pointer-events: none;
         }
         .orb-1 { top: -10%; left: 0%; background: var(--brand-blue); }
-        .orb-2 { top: 40%; right: 0%; background: var(--brand-cyan); }
+        .orb-2 { top: 15%; right: 0%; background: var(--brand-cyan); }
 @media (max-width: 576px) {
    .glow-orb{
   width: 100px;
@@ -2773,6 +2776,7 @@ font-size: 22px;
 .calc-checkbox-card input:checked + .checkbox-box {
   border-color: var(--primary-color);
   background: var(--bg-soft-blue);
+  height: 100%;
 }
 
 .calc-checkbox-card input:checked + .checkbox-box .check-icon {
@@ -2868,7 +2872,70 @@ font-size: 22px;
 .text-purple {
   color: #8e44ad;
 }
-
+.calc-checkbox-card{
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 1400px) {
+  .calc-option-card .card-box{
+    padding: 10px;
+  }
+  .calc-checkbox-card .checkbox-box h6{
+    font-size: 12px;
+  }
+  .range-wrapper{
+    padding: 14px;
+    font-size: 13px;
+  }
+  .area-badge{
+        font-size: 13px;
+  }
+}
+@media (max-width: 1200px) {
+  .calc-option-card .card-box{
+    padding: 5px;
+  }
+  .calc-checkbox-card .checkbox-box h6{
+    font-size: 10px;
+  }
+  .range-wrapper{
+    padding: 10px;
+    font-size: 11px;
+  }
+  .area-badge{
+        font-size: 12px;
+  }
+  .calc-checkbox-card .checkbox-box p,
+  .summary-card .price-box{
+    font-size: 9px;
+  }
+  .calc-option-card .card-box span{
+    font-size: 11px;
+  }
+  .calc-option-card .card-box i{
+    font-size: 21px;
+  }
+  .calc-card{
+    padding: 20px;
+  }
+  .step-header h4,
+  .summary-card h3,
+  .summary-card h5{
+    font-size: 17px;
+  }
+  .summary-card .subtitle,
+  .text-white-50,
+  .summary-features li,
+  .btn-elit-submit{
+    font-size: 10px;
+  }
+  .summary-card .price-box .amount {
+    font-size: 22px;
+  }
+  .summary-card{
+    padding: 20px;
+  }
+}
 /* contact */
 
     /* ==========================================

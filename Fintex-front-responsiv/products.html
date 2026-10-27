@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Məhsul Kataloqu - Fintex Zəif Axın və Mühafizə Sistemləri</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/a2.css">
+</head>
+<style>
+    /* ==========================================
+   ADVANCED FILTER SIDEBAR & ELITE STYLING
+   ========================================== */
+#products-catalog .filter-sidebar {
+    background: #ffffff;
+    border: 1px solid #eef2f7;
+    border-radius: 16px;
+    position: sticky;
+    top: 100px;
+}
+
+#products-catalog .filter-sidebar .form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#products-catalog .product-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #eef2f7;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#products-catalog .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: rgba(0,123,255,0.3);
+}
+
+#products-catalog .card-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    color: #fff;
+}
+
+#products-catalog .product-img-holder {
+    position: relative;
+    background: #f8fafc;
+    text-align: center;
+    overflow: hidden;
+}
+
+#products-catalog .product-img {
+    max-height: 170px;
+    width: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+#products-catalog .product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+#products-catalog .product-actions {
+    position: absolute;
+    right: -50px;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: right 0.3s ease;
+}
+
+#products-catalog .product-card:hover .product-actions {
+    right: 15px;
+}
+
+#products-catalog .action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eef2f7;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: all 0.2s ease;
+}
+
+#products-catalog .action-btn:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+#products-catalog .product-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#products-catalog .product-brand {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #8898aa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#products-catalog .product-title a {
+    color: #1a202c;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#products-catalog .product-title a:hover {
+    color: #007bff;
+}
+
+#products-catalog .product-desc {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+#products-catalog .product-specs {
+    display: flex;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: #4a5568;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+#products-catalog .product-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid #edf2f7;
+}
+
+#products-catalog .stock-status {
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+#products-catalog .btn-elit-outline {
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+#products-catalog .btn-elit-outline:hover {
+    background: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,123,255,0.2);
+}
+/* Custom Pagination Elit Styling */
+#products-catalog .pagination .page-item .page-link {
+    border: 1px solid #eef2f7;
+    color: #495057;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 3px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#products-catalog .pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.25);
+}
+
+#products-catalog .pagination .page-item .page-link:hover {
+    background-color: #f1f5f9;
+    color: #007bff;
+    border-color: #cbd5e1;
+}
+
+#products-catalog .pagination .page-item.disabled .page-link {
+    background-color: #f8fafc;
+    color: #94a3b8;
+    border-color: #f1f5f9;
+}
+@media (max-width: 1200px){
+    #products-catalog .filter-sidebar{
+        padding: 12px !important;
+    }
+    #products-catalog .mb-4{
+            margin-bottom: 10px !important;
+    }
+    #products-catalog h5{
+        font-size: 17px;
+    }
+    #products-catalog .product-title a{
+        font-size: 15px;
+    }
+    #products-catalog .product-desc{
+            font-size: 12px;
+    margin-bottom: 10px;
+    }
+    #products-catalog .product-specs{
+        font-size: 10px;
+            padding: 5px 10px;
+    }
+}
+@media (max-width: 1400px) {
+    #products-catalog 
+    label,
+    input,
+    select,
+    .form-select,
+    .input-group>.form-control
+    {
+    font-size: 12px;
+    }
+    #products-catalog .product-title a{
+            font-size: 15px;
+    }
+    #products-catalog .btn-elit-outline,
+    #products-catalog .stock-status,
+    #products-catalog .product-specs,
+    #products-catalog .product-desc{
+        font-size: 11px;
+    }
+}
+</style>
+<body id="products-page">
+
+    <!-- Modern Animated Burger Trigger -->
+    <button class="burger-menu-btn" id="burgerMenuBtn" aria-label="Toggle Menu">
+        <span class="burger-line line-1"></span>
+        <span class="burger-line line-2"></span>
+        <span class="burger-line line-3"></span>
+    </button>
+
+    <div class="burger-overlay" id="burgerOverlay"></div>
+
+    <!-- Modern Elit Sidebar Start -->
+    <aside class="fintex-sidebar burger-nav-drawer" id="fintexSidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="user-info">
+                <img src="./images/logo.svg" alt="Fintex Logo" style="height: 50px;">
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Əsas Bölmələr</div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="index.html" class="menu-link"><i class="menu-icon fa-solid fa-house"></i><span class="menu-text">Ana Səhifə</span></a></li>
+                <li class="menu-item"><a href="about.html" class="menu-link"><i class="menu-icon fa-solid fa-circle-info"></i><span class="menu-text">Haqqımızda</span></a></li>
+                <li class="menu-item"><a href="products.html" class="menu-link active"><i class="menu-icon fa-solid fa-boxes-stacked"></i><span class="menu-text">Məhsullar</span></a></li>
+                <li class="menu-item"><a href="calculator.html" class="menu-link"><i class="menu-icon fa-solid fa-calculator"></i><span class="menu-text">Smeta Kalkulyatoru</span><span class="badge-mini">Yeni</span></a></li>
+            </ul>
+            <div class="nav-section-label">Xidmətlər Portfeli</div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="service-detail1.html" class="menu-link"><i class="menu-icon fa-solid fa-fire-flame-curved text-danger"></i><span class="menu-text">Yanğın Aşkarlama</span></a></li>
+                <li class="menu-item"><a href="service-detail3.html" class="menu-link"><i class="menu-icon fa-solid fa-video text-primary"></i><span class="menu-text">Video Təhlükəsizlik</span></a></li>
+                <li class="menu-item"><a href="service-detail6.html" class="menu-link"><i class="menu-icon fa-solid fa-network-wired text-info"></i><span class="menu-text">İT İnfrastrukturu</span></a></li>
+                <li class="menu-item"><a href="service-detail8.html" class="menu-link"><i class="menu-icon fa-solid fa-gears text-warning"></i><span class="menu-text">Avtomatlaşdırma (BMS)</span></a></li>
+            </ul>
+            <div class="nav-section-label">Dəstək & Əlaqə</div>
+            <ul class="sidebar-menu">
+                <li class="menu-item"><a href="contact.html" class="menu-link"><i class="menu-icon fa-solid fa-headset"></i><span class="menu-text">Əlaqə & Dəstək</span></a></li>
+                <li class="menu-item"><a href="login.html" class="menu-link"><i class="menu-icon fa-solid fa-right-to-bracket"></i><span class="menu-text">Şəxsi Kabinet</span></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="support-status"><span class="status-dot"></span><span class="status-text">24/7 Texniki Dəstək Onlayn</span></div>
+        </div>
+    </aside>
+    <!-- Modern Elit Sidebar End -->
+
+    <!-- Header -->
+    <header id="header" class="services sticky-top">
+        <div class="container header">
+            <div class="row align-items-center g-3">
+                <div class="logo col-6 col-lg-2 text-start">
+                    <a href="index.html"><img src="./images/logo.svg" alt="Fintex Logo" class="img-fluid"></a>
+                </div>
+                <div class="navs col-12 col-lg-7 order-3 order-lg-2">
+                    <ul class="navs-ul">
+                        <li class="nav-a"><a href="index.html">Ana səhifə</a></li>
+                        <li class="nav-a"><a href="about.html">Haqqımızda</a></li>
+                        <li class="nav-a"><a href="services.html">Xidmətlər</a></li>
+                        <li class="nav-a"><a class="active" href="products.html">Məhsullar</a></li>
+                        <li class="nav-a"><a href="contact.html">Əlaqə</a></li>
+                    </ul>
+                </div>
+                <div class="connect col-6 col-lg-3 text-end order-2 order-lg-3">
+                    <a href="#" class="language">
+                        <i class="fa-solid fa-earth-europe"></i>
+                        <select name="lang" id="lang-dropdown">
+                            <option value="AZ" selected>AZ</option>
+                            <option value="EN">EN</option>
+                            <option value="RU">RU</option>
+                        </select>
+                    </a>
+                    <a href="calculator.html" class="my-btn connect-btn d-none d-md-inline-flex">Smeta</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero Banner -->
+        <section id="service-detail-intro">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Sertifikatlaşdırılmış Mühəndislik Avadanlıqları</h2>
+                            <div class="bottom flex-column flex-md-row align-items-start align-items-md-end gap-3 mt-3">
+                                <p class="mb-0">Dünyanın aparıcı brendlərindən NFPA, EN54 və ISO standartlarına cavab verən rəsmi zəmanətli avadanlıqlar və komponentlər.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Filter & Catalog Section -->
+        <section id="products-catalog" class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    
+                    <!-- Left Sidebar: Professional Multi-Criteria Filters -->
+                    <div class="col-12 col-lg-4 col-xl-3">
+                        <div class="filter-sidebar p-4 rounded-4 shadow-sm bg-white border">
+                            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                <h5 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-filter text-primary me-2"></i> Filtrlər</h5>
+                                <button class="btn btn-sm text-muted p-0" id="resetFilters">Sıfırla</button>
+                            </div>
+
+                            <!-- Search Filter -->
+                            <div class="mb-4">
+                                <label class="form-label small fw-semibold text-secondary">Axtarış</label>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                                    <input type="text" id="productSearch" class="form-control bg-light border-start-0" placeholder="Model, ad...">
+                                </div>
+                            </div>
+
+                            <!-- Category Filter Group -->
+                            <div class="mb-4">
+                                <label class="form-label small fw-semibold text-secondary">Kateqoriya</label>
+                                <div class="d-flex flex-column gap-2" id="categoryFilters">
+                                    <div class="form-check">
+                                        <input class="form-check-input filter-cat" type="radio" name="category" id="cat-all" value="all" checked>
+                                        <label class="form-check-label small" for="cat-all">Bütün Kateqoriyalar</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input filter-cat" type="radio" name="category" id="cat-fire" value="fire">
+                                        <label class="form-check-label small" for="cat-fire">Yanğın Aşkarlama</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input filter-cat" type="radio" name="category" id="cat-cctv" value="cctv">
+                                        <label class="form-check-label small" for="cat-cctv">Video Təhlükəsizlik (CCTV)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input filter-cat" type="radio" name="category" id="cat-access" value="access">
+                                        <label class="form-check-label small" for="cat-access">Girişə Nəzarət (ACS)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input filter-cat" type="radio" name="category" id="cat-it" value="it">
+                                        <label class="form-check-label small" for="cat-it">İT & Şəbəkə İnfrastrukturu</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input filter-cat" type="radio" name="category" id="cat-bms" value="bms">
+                                        <label class="form-check-label small" for="cat-bms">Bina Avtomatlaşdırma (BMS)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Brand Filter Group -->
+                            <div class="mb-4">
+                                <label class="form-label small fw-semibold text-secondary">İstehsalçı Brend</label>
+                                <select id="brandFilter" class="form-select form-select-sm">
+                                    <option value="all" selected>Bütün Brendlər</option>
+                                    <option value="Bosch Security">Bosch Security</option>
+                                    <option value="Hikvision">Hikvision</option>
+                                    <option value="Suprema">Suprema</option>
+                                    <option value="Cisco Systems">Cisco Systems</option>
+                                    <option value="Honeywell">Honeywell</option>
+                                    <option value="Xtralis">Xtralis / Honeywell</option>
+                                </select>
+                            </div>
+
+                            <!-- Stock Status Filter -->
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-secondary">Mövcudluq</label>
+                                <select id="stockFilter" class="form-select form-select-sm">
+                                    <option value="all" selected>Hamısı</option>
+                                    <option value="in-stock">Yalnız Stokda olanlar</option>
+                                    <option value="order">Sifarişlə gələnlər</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Main Area: Products Grid & Top Sorting Bar -->
+                    <div class="col-12 col-lg-8 col-xl-9">
+                        <!-- Top Bar: Results Count & Sorting -->
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center bg-white p-3 mb-4 rounded-4 shadow-sm border gap-3">
+                            <div class="text-secondary small">
+                                Tapıldı: <strong id="productCount" class="text-dark">6</strong> məhsul
+                            </div>
+                            <div class="d-flex align-items-center gap-2 w-150">
+                                <span class="small text-secondary text-nowrap">Sırala:</span>
+                                <select id="sortOrder" class="form-select form-select-sm">
+                                    <option value="default">Standart</option>
+                                    <option value="az">Ada görə (A-Z)</option>
+                                    <option value="za">Ada görə (Z-A)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Product Grid Container -->
+                        <div class="row g-4" id="productGrid">
+
+                            <!-- Product 1 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="fire" data-brand="Bosch Security" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-danger">Yanğın</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Bosch Detektor" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Bosch FAP-425-OT', 'Adresli Optik-İstilik Yanğın Detektoru', 'Bosch Security', 'EN54-7 sertifikatlı, 360 dərəcə görünən LED göstəricili intellektual detektor.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Bosch Security</span>
+                                        <h5 class="product-title"><a href="#">Bosch FAP-425-OT</a></h5>
+                                        <p class="product-desc">Adresli Optik-İstilik Kombinə Olunmuş Yanğın Detektoru</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-shield-halved text-success me-1"></i> EN54-7</span>
+                                            <span><i class="fa-solid fa-microchip me-1"></i> Dual-Ray</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="cctv" data-brand="Hikvision" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-primary">CCTV</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Hikvision IP Kamera" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Hikvision DS-2CD2143G2-I', '4MP AcuSense Vandal-proof Dome Kamera', 'Hikvision', 'Deep Learning üzrə insan və nəqliyyat vasitələrinin dəqiq analitikası.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Hikvision</span>
+                                        <h5 class="product-title"><a href="#">DS-2CD2143G2-I</a></h5>
+                                        <p class="product-desc">4MP AcuSense Vandal-Proof Akustik IP Dome Kamera</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-video me-1"></i> 4K UHD</span>
+                                            <span><i class="fa-solid fa-brain me-1"></i> AI Analitika</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="access" data-brand="Suprema" data-stock="order">
+                                <div class="product-card">
+                                    <div class="card-badge bg-success">Girişə Nəzarət</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Suprema Biometrik" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Suprema FaceStation F2', 'Biometrik Üz və Barmaq İzi Terminalı', 'Suprema', 'Multimodal biometrik identifikasiya texnologiyası və temperatur sensoru.', 'Sifarişlə')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Suprema</span>
+                                        <h5 class="product-title"><a href="#">FaceStation F2</a></h5>
+                                        <p class="product-desc">Biometrik Üz Tanıma və Barmaq İzi Access Terminalı</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-user-lock me-1"></i> Biometrik</span>
+                                            <span><i class="fa-solid fa-wifi me-1"></i> IP65</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-warning"><i class="fa-solid fa-clock me-1"></i> Sifarişlə</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="it" data-brand="Cisco Systems" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-info">İT & Şəbəkə</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Cisco Switch" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Cisco Catalyst C9300-24P', '24-Port PoE+ İdarəolunan Switch', 'Cisco Systems', 'Yüksək performanslı enterprise şəbəkələr üçün UPOE dəstəkli kommutator.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Cisco Systems</span>
+                                        <h5 class="product-title"><a href="#">Catalyst C9300-24P</a></h5>
+                                        <p class="product-desc">24-Port PoE+ L3 Managed Enterprise Switch</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-network-wired me-1"></i> 24x PoE+</span>
+                                            <span><i class="fa-solid fa-bolt me-1"></i> 437W</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="bms" data-brand="Honeywell" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-warning text-dark">BMS</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Honeywell BMS" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Honeywell WEBS-8000', 'Bina Avtomatlaşdırma Controller', 'Honeywell', 'BACnet, Modbus və LonWorks protokollarını dəstəkləyən Niagara4 təməlli idarəetmə stansiyası.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Honeywell</span>
+                                        <h5 class="product-title"><a href="#">Honeywell WEBS-8000</a></h5>
+                                        <p class="product-desc">Niagara4 Təməlli İnteraktiv BMS Controller</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-gears me-1"></i> BACnet/IP</span>
+                                            <span><i class="fa-solid fa-plug me-1"></i> Modbus</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 6 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="fire" data-brand="Xtralis" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-danger">Yanğın</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="VESDA" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Xtralis VESDA VEP', 'Erkən Yanğın Aspirasiya Detektoru', 'Xtralis / Honeywell', 'Data mərkəzləri və kritik sahələr üçün ultradəqiq lazer tüstü aşkarlama sistemi.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Xtralis / Honeywell</span>
+                                        <h5 class="product-title"><a href="#">VESDA VEP-A00-P</a></h5>
+                                        <p class="product-desc">Erkən Xəbərdarlıq Laser Aspirasiya Tüstü Detektoru</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-bullseye me-1"></i> High Sensitivity</span>
+                                            <span><i class="fa-solid fa-server me-1"></i> Data Center</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 1 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="fire" data-brand="Bosch Security" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-danger">Yanğın</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Bosch Detektor" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Bosch FAP-425-OT', 'Adresli Optik-İstilik Yanğın Detektoru', 'Bosch Security', 'EN54-7 sertifikatlı, 360 dərəcə görünən LED göstəricili intellektual detektor.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Bosch Security</span>
+                                        <h5 class="product-title"><a href="#">Bosch FAP-425-OT</a></h5>
+                                        <p class="product-desc">Adresli Optik-İstilik Kombinə Olunmuş Yanğın Detektoru</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-shield-halved text-success me-1"></i> EN54-7</span>
+                                            <span><i class="fa-solid fa-microchip me-1"></i> Dual-Ray</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="cctv" data-brand="Hikvision" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-primary">CCTV</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Hikvision IP Kamera" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Hikvision DS-2CD2143G2-I', '4MP AcuSense Vandal-proof Dome Kamera', 'Hikvision', 'Deep Learning üzrə insan və nəqliyyat vasitələrinin dəqiq analitikası.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Hikvision</span>
+                                        <h5 class="product-title"><a href="#">DS-2CD2143G2-I</a></h5>
+                                        <p class="product-desc">4MP AcuSense Vandal-Proof Akustik IP Dome Kamera</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-video me-1"></i> 4K UHD</span>
+                                            <span><i class="fa-solid fa-brain me-1"></i> AI Analitika</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="access" data-brand="Suprema" data-stock="order">
+                                <div class="product-card">
+                                    <div class="card-badge bg-success">Girişə Nəzarət</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Suprema Biometrik" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Suprema FaceStation F2', 'Biometrik Üz və Barmaq İzi Terminalı', 'Suprema', 'Multimodal biometrik identifikasiya texnologiyası və temperatur sensoru.', 'Sifarişlə')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Suprema</span>
+                                        <h5 class="product-title"><a href="#">FaceStation F2</a></h5>
+                                        <p class="product-desc">Biometrik Üz Tanıma və Barmaq İzi Access Terminalı</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-user-lock me-1"></i> Biometrik</span>
+                                            <span><i class="fa-solid fa-wifi me-1"></i> IP65</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-warning"><i class="fa-solid fa-clock me-1"></i> Sifarişlə</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="it" data-brand="Cisco Systems" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-info">İT & Şəbəkə</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Cisco Switch" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Cisco Catalyst C9300-24P', '24-Port PoE+ İdarəolunan Switch', 'Cisco Systems', 'Yüksək performanslı enterprise şəbəkələr üçün UPOE dəstəkli kommutator.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Cisco Systems</span>
+                                        <h5 class="product-title"><a href="#">Catalyst C9300-24P</a></h5>
+                                        <p class="product-desc">24-Port PoE+ L3 Managed Enterprise Switch</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-network-wired me-1"></i> 24x PoE+</span>
+                                            <span><i class="fa-solid fa-bolt me-1"></i> 437W</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="bms" data-brand="Honeywell" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-warning text-dark">BMS</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="Honeywell BMS" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Honeywell WEBS-8000', 'Bina Avtomatlaşdırma Controller', 'Honeywell', 'BACnet, Modbus və LonWorks protokollarını dəstəkləyən Niagara4 təməlli idarəetmə stansiyası.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Honeywell</span>
+                                        <h5 class="product-title"><a href="#">Honeywell WEBS-8000</a></h5>
+                                        <p class="product-desc">Niagara4 Təməlli İnteraktiv BMS Controller</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-gears me-1"></i> BACnet/IP</span>
+                                            <span><i class="fa-solid fa-plug me-1"></i> Modbus</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 6 -->
+                            <div class="col-12 col-md-6 col-xl-4 product-item" data-category="fire" data-brand="Xtralis" data-stock="in-stock">
+                                <div class="product-card">
+                                    <div class="card-badge bg-danger">Yanğın</div>
+                                    <div class="product-img-holder">
+                                        <img src="./images/intro-big3.png" alt="VESDA" class="img-fluid product-img">
+                                        <div class="product-actions">
+                                            <button class="action-btn" title="Tez baxış" data-bs-toggle="modal" data-bs-target="#quickViewModal" onclick="loadQuickView('Xtralis VESDA VEP', 'Erkən Yanğın Aspirasiya Detektoru', 'Xtralis / Honeywell', 'Data mərkəzləri və kritik sahələr üçün ultradəqiq lazer tüstü aşkarlama sistemi.', 'Stokda var')"><i class="fa-regular fa-eye"></i></button>
+                                            <button class="action-btn" title="Müqayisə et"><i class="fa-solid fa-code-compare"></i></button>
+                                            <button class="action-btn" title="İstək siyahısı"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <span class="product-brand">Xtralis / Honeywell</span>
+                                        <h5 class="product-title"><a href="#">VESDA VEP-A00-P</a></h5>
+                                        <p class="product-desc">Erkən Xəbərdarlıq Laser Aspirasiya Tüstü Detektoru</p>
+                                        <div class="product-specs">
+                                            <span><i class="fa-solid fa-bullseye me-1"></i> High Sensitivity</span>
+                                            <span><i class="fa-solid fa-server me-1"></i> Data Center</span>
+                                        </div>
+                                        <div class="product-footer">
+                                            <span class="stock-status text-success"><i class="fa-solid fa-circle-check me-1"></i> Stokda var</span>
+                                            <a href="calculator.html" class="btn btn-sm btn-elit-outline">Smeta Əlavə Et</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Empty State Notice
+                        <div id="noProductsFound" class="text-center py-5 d-none">
+                            <i class="fa-solid fa-box-open fs-1 text-muted mb-3"></i>
+                            <h5 class="text-dark fw-bold">Axtarışınıza uyğun məhsul tapılmadı</h5>
+                            <p class="text-muted small">Fərqli filtr meyarları seçməklə yenidən cəhd edin.</p>
+                        </div> -->
+                        <!-- Product Grid Container -->
+<div class="row g-4" id="productGrid">
+    <!-- Məhsul kartları burada yerləşir -->
+</div>
+
+<!-- Empty State Notice -->
+<div id="noProductsFound" class="text-center py-5 d-none">
+    <i class="fa-solid fa-box-open fs-1 text-muted mb-3"></i>
+    <h5 class="text-dark fw-bold">Axtarışınıza uyğun məhsul tapılmadı</h5>
+    <p class="text-muted small">Fərqli filtr meyarları seçməklə yenidən cəhd edin.</p>
+</div>
+
+<!-- Professional Pagination Container -->
+<nav aria-label="Product Pagination" class="mt-5">
+    <ul class="pagination justify-content-center" id="paginationContainer">
+        <!-- JavaScript vasitəsilə dinamik olaraq yaranacaq -->
+    </ul>
+</nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick View Modal -->
+        <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0 rounded-4 overflow-hidden">
+                    <div class="modal-body p-0">
+                        <div class="row g-0">
+                            <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4">
+                                <img src="./images/intro-big3.png" id="modalImg" class="img-fluid rounded-3" alt="Product">
+                            </div>
+                            <div class="col-md-6 p-4 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span id="modalBrand" class="badge bg-secondary">Brand</span>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <h4 id="modalTitle" class="fw-bold mb-1">Product Title</h4>
+                                    <p id="modalSub" class="text-primary fw-medium small mb-3">Sub title</p>
+                                    <p id="modalDesc" class="text-muted small leading-relaxed">Description...</p>
+                                </div>
+                                <div>
+                                    <div class="mb-3">
+                                        <small class="text-secondary d-block">Mövcudluq statusu:</small>
+                                        <span id="modalStock" class="fw-semibold text-success"><i class="fa-solid fa-check-circle me-1"></i> Stokda var</span>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <a href="calculator.html" class="btn btn-elit-submit text-center">Təklif Və Smeta Al</a>
+                                        <a href="contact.html" class="btn btn-outline-secondary btn-sm">Mühəndislə Məsləhətləş</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggestion CTA -->
+        <section id="suggestion">
+            <div class="container">
+                <div class="suggestion row align-items-center g-3">
+                    <div class="col-12 col-lg-5 text-center text-lg-start">
+                        <div class="head-content">
+                            <h6>MÜHƏNDİS KONSULTASİYASI</h6>
+                            <h4 class="mb-0">Spesifik avadanlıq seçimi üçün kömək lazımdır?</h4>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 text-center text-lg-start">
+                        <p class="mb-0">Mütəxəssislərimiz obyektinizin tələblərinə uyğun rəsmi spesifikasiya faylını pulsuz hazırlayır.</p>
+                    </div>
+                    <div class="col-12 col-lg-3 text-center text-lg-end">
+                        <a href="contact.html" class="my-btn d-inline-flex">Əlaqə saxla</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="logo mb-3">
+                            <a href="index.html"><img src="./images/logo.svg" alt="Fintex Logo" style="max-width: 150px;"></a>
+                        </div>
+                        <p class="footer-main-text">Zəif axın, yanğın aşkarlama, təhlükəsizlik və bina avtomatlaşdırma sistemləri</p>
+                        <ul class="socials">
+                            <li class="link"><a href="#"><img src="./images/instagram.svg" alt="Instagram"></a></li>
+                            <li class="link"><a href="#"><img src="./images/facebook.svg" alt="Facebook"></a></li>
+                            <li class="link"><a href="#"><img src="./images/linkedin.svg" alt="LinkedIn"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Sürətli keçidlər</p>
+                        <ul class="links">
+                            <li><a href="index.html"><span>&gt;</span>Ana səhifə</a></li>
+                            <li><a href="about.html"><span>&gt;</span>Haqqında</a></li>
+                            <li><a href="services.html"><span>&gt;</span>Xidmətlər</a></li>
+                            <li><a href="products.html"><span>&gt;</span>Məhsullar</a></li>
+                            <li><a href="contact.html"><span>&gt;</span>Əlaqə</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Məhsullarımız</p>
+                        <ul class="links">
+                            <li><a href="#"><span>&gt;</span>Yanğın</a></li>
+                            <li><a href="#"><span>&gt;</span>Təhlükəsizlik</a></li>
+                            <li><a href="#"><span>&gt;</span>Rabitə</a></li>
+                            <li><a href="#"><span>&gt;</span>İT infrastrukturu</a></li>
+                            <li><a href="#"><span>&gt;</span>Avtomatlaşdırma</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <p class="footer-links-head">Əlaqə məlumatlarımız</p>
+                        <ul class="links">
+                            <li><a href="tel:+994501234567"><img src="./images/phone-icon.svg" alt="Phone"><span class="link-text">+994 50 123 45 67</span></a></li>
+                            <li><a href="mailto:info@fintex.az"><img src="./images/mail-icon.svg" alt="Email"><span class="link-text">info@fintex.az</span></a></li>
+                            <li><a href="#"><img src="./images/location-icon.svg" alt="Location"><span class="link-text">Baku, 1st Jidir, home 21</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 footer-bottom">
+                        <div class="row g-2 align-items-center w-100">
+                            <div class="col-12 col-md-4 text-center text-md-start"><p>© Copyright 2026 Fintex. All Rights Reserved</p></div>
+                            <div class="col-12 col-md-4 footer-bottom-links justify-content-center my-2 my-md-0">
+                                <a href="#">Məxfilik siyasəti</a>
+                                <a href="#">İstifadə şərtləri</a>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end"><p>Designed by "Design" in Azerbaijan</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Professional Multi-Criteria Filtering & Sorting Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const categoryRadios = document.querySelectorAll('.filter-cat');
+    const brandSelect = document.getElementById('brandFilter');
+    const stockSelect = document.getElementById('stockFilter');
+    const searchInput = document.getElementById('productSearch');
+    const sortSelect = document.getElementById('sortOrder');
+    const resetBtn = document.getElementById('resetFilters');
+    const productGrid = document.getElementById('productGrid');
+    const productItems = Array.from(document.querySelectorAll('.product-item'));
+    const productCountEl = document.getElementById('productCount');
+    const noProductsFound = document.getElementById('noProductsFound');
+    const paginationContainer = document.getElementById('paginationContainer');
+
+    let currentPage = 1;
+    const itemsPerPage = 6; // Hər səhifədə göstəriləcək məhsul sayı
+
+    function filterAndSortProducts() {
+        const selectedCat = document.querySelector('.filter-cat:checked').value;
+        const selectedBrand = brandSelect.value;
+        const selectedStock = stockSelect.value;
+        const query = searchInput.value.toLowerCase().trim();
+        const sortVal = sortSelect.value;
+
+        // 1. Filtrasiya mərhələsi
+        let filteredItems = productItems.filter(item => {
+            const cat = item.getAttribute('data-category');
+            const brand = item.getAttribute('data-brand');
+            const stock = item.getAttribute('data-stock');
+            const textContent = item.innerText.toLowerCase();
+
+            let matchesCat = (selectedCat === 'all' || cat === selectedCat);
+            let matchesBrand = (selectedBrand === 'all' || brand === selectedBrand);
+            let matchesStock = (selectedStock === 'all' || stock === selectedStock);
+            let matchesSearch = (textContent.includes(query));
+
+            return matchesCat && matchesBrand && matchesStock && matchesSearch;
+        });
+
+        // 2. Sıralama (Sorting) mərhələsi
+        if (sortVal === 'az') {
+            filteredItems.sort((a, b) => a.querySelector('.product-title').innerText.localeCompare(b.querySelector('.product-title').innerText));
+        } else if (sortVal === 'za') {
+            filteredItems.sort((a, b) => b.querySelector('.product-title').innerText.localeCompare(a.querySelector('.product-title').innerText));
+        }
+
+        // Ümumi tapılan məhsul sayı
+        const totalItems = filteredItems.length;
+        productCountEl.innerText = totalItems;
+
+        // Əgər məhsul yoxdursa
+        if (totalItems === 0) {
+            noProductsFound.classList.remove('d-none');
+            paginationContainer.innerHTML = '';
+            productItems.forEach(item => item.style.display = 'none');
+            return;
+        } else {
+            noProductsFound.classList.add('d-none');
+        }
+
+        // 3. Səhifələmə (Pagination) mərhələsi
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        if (currentPage > totalPages) currentPage = 1;
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedItems = filteredItems.slice(startIndex, endIndex);
+
+        // Bütün məhsulları gizlət, yalnız cari səhifəyə aid olanları göstər
+        productItems.forEach(item => item.style.display = 'none');
+        paginatedItems.forEach(item => {
+            productGrid.appendChild(item); // Sıralamaya uyğun yenidən düzür
+            item.style.display = 'block';
+        });
+
+        // Pagination düymələrini render et
+        renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+        paginationContainer.innerHTML = '';
+
+        if (totalPages <= 1) return;
+
+        // Əvvəlki (Previous) düyməsi
+        const prevLi = document.createElement('li');
+        prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+        prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-chevron-left small"></i></a>`;
+        prevLi.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                filterAndSortProducts();
+            }
+        });
+        paginationContainer.appendChild(prevLi);
+
+        // Səhifə nömrələri
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLi = document.createElement('li');
+            pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+            pageLi.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            pageLi.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = i;
+                filterAndSortProducts();
+            });
+            paginationContainer.appendChild(pageLi);
+        }
+
+        // Növbəti (Next) düyməsi
+        const nextLi = document.createElement('li');
+        nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+        nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next"><i class="fa-solid fa-chevron-right small"></i></a>`;
+        nextLi.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+                currentPage++;
+                filterAndSortProducts();
+            }
+        });
+        paginationContainer.appendChild(nextLi);
+    }
+
+    // Event Listeners (Filtr dəyişəndə səhifəni 1-ə qaytar)
+    categoryRadios.forEach(radio => radio.addEventListener('change', () => { currentPage = 1; filterAndSortProducts(); }));
+    brandSelect.addEventListener('change', () => { currentPage = 1; filterAndSortProducts(); });
+    stockSelect.addEventListener('change', () => { currentPage = 1; filterAndSortProducts(); });
+    searchInput.addEventListener('input', () => { currentPage = 1; filterAndSortProducts(); });
+    sortSelect.addEventListener('change', () => { currentPage = 1; filterAndSortProducts(); });
+
+    // Reset filters
+    resetBtn.addEventListener('click', () => {
+        document.getElementById('cat-all').checked = true;
+        brandSelect.value = 'all';
+        stockSelect.value = 'all';
+        searchInput.value = '';
+        sortSelect.value = 'default';
+        currentPage = 1;
+        filterAndSortProducts();
+    });
+
+    // İlk yüklənmə
+    filterAndSortProducts();
+});
+
+// Quick View Modal Loader
+function loadQuickView(title, sub, brand, desc, stock) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalSub').innerText = sub;
+    document.getElementById('modalBrand').innerText = brand;
+    document.getElementById('modalDesc').innerText = desc;
+    document.getElementById('modalStock').innerHTML = stock.includes('Stokda') 
+        ? '<i class="fa-solid fa-circle-check me-1"></i> ' + stock 
+        : '<i class="fa-solid fa-clock me-1"></i> ' + stock;
+}
+    </script>
+</body>
+</html>

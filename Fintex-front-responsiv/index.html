@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/a2.css">
 </head>
-<body id="index">
+<body id="index" class="show-burger-menu">
     <!-- Modern Animated Burger Trigger (Burger Düyməsi) -->
 <button class="burger-menu-btn" id="burgerMenuBtn" aria-label="Toggle Menu">
     <span class="burger-line line-1"></span>
@@ -152,11 +152,11 @@
             </p>
 
             <div class="d-flex justify-content-center gap-3">
-                <a href="services.html" class="enter-btn">
-                    Xidmət Portfeli <i class="fa-solid fa-arrow-right fs-6"></i>
+                <a href="about.html" class="enter-btn">
+                     Haqqımızda <i class="fa-solid fa-arrow-right fs-6"></i>
                 </a>
-                <a href="service-detail1.html" class="enter-btn" style="background: transparent; border-color: rgba(255,255,255,0.2);">
-                    Yanğın Sistemi <i class="fa-solid fa-shield-cat fs-6"></i>
+                <a href="services.html" class="enter-btn" style="background: transparent; border-color: rgba(255,255,255,0.2);">
+                    Xidmət Portfeli <i class="fa-solid fa-shield-cat fs-6"></i>
                 </a>
             </div>
         </div>
@@ -345,57 +345,9 @@
             <p class="mb-0">© Copyright 2026 Fintex MMC. Bütün hüquqlar qorunur.</p>
         </div>
     </footer>
+    <script src="js/index.js"></script>
 <script src="js/main.js"></script>
     <!-- Bootstrap & Particles Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Particle Canvas Logic
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const particles = [];
-        const particleCount = Math.min(window.innerWidth / 15, 60);
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.radius = Math.random() * 1.5 + 1;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.alpha = Math.random() * 0.4 + 0.2;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(58, 134, 255, ${this.alpha})`;
-                ctx.fill();
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-        }
-
-        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-        animate();
-    </script>
 </body>
 </html>
