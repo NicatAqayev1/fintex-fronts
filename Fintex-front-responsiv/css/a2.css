@@ -445,11 +445,6 @@ SERVICE INTRO
   color: var(--secondary-color);
 }
 
-@media (min-width: 768px) {
-  #service-intro .service-intro-left .text h2 {
-    font-size: 40px;
-  }
-}
 
 #service-intro .service-intro-left .text h5 {
   font-size: 15px;
@@ -489,6 +484,17 @@ SERVICE DETAIL INTRO
   padding: 0;
 }
 
+@media (max-width: 1200px){
+  #service-intro .service-intro-left .text h5 {
+    font-size: 13px;
+  }
+  #service-intro .service-intro-left .text .my-btn {
+    padding: 9px 30px;
+  }
+  #service-intro .service-intro-left .text h4{
+    font-size: 10px;
+  }
+}
 
 #service-detail-intro .container-fluid {
   background-image: linear-gradient(90deg, rgba(0, 14, 35, 0.95) 20%, rgba(0, 14, 35, 0.8) 70%, rgba(0, 14, 35, 0.4));
@@ -832,15 +838,50 @@ STATISTICS SECTION
     margin-right: 5px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1200px) {
+  
+  #stats .stats .stat .inside {
+    padding: 0px;
+  }
   #stats .stats .stat .inside h3 {
     font-size: 22px;
   }
   #stats .stats .stat .inside h6 {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
-
+@media (max-width: 768px) and (min-width: 576px) {
+  #stats.intro-stats .stats>*{
+    flex: 1;
+  }
+}
+@media (max-width: 992px) {
+  #stats .stats .stat .inside h6 {
+    font-size: 9px;
+  }
+  #service-intro .container-fluid{
+    padding: 2rem 15px 0;
+  }
+}
+@media (max-width: 768px) {
+  #stats .stats .stat .inside h6 {
+    font-size: 8px;
+  }
+  #stats.intro-stats .stats .stat{
+    padding: 0;
+  }
+  #stats .stats .stat .inside h6 i{
+    font-size: 10px;
+  }
+}
+@media (max-width: 576px) {
+  #stats.intro-stats .stats{
+    display: none;
+  }
+  #service-intro .container-fluid{
+    padding: 2rem 15px;
+  }
+}
 /* ==========================================
 CATEGORIES SECTION
 ========================================== */
@@ -910,7 +951,23 @@ CATEGORIES SECTION
   color: var(--text-muted);
   margin: 0;
 }
-
+@media (max-width: 1200px) {
+  #categories .boxes.categories .inside p:nth-child(2) {
+    font-size: 15px;
+  }
+  #categories .boxes.categories .inside p:nth-child(3) {
+    font-size: 10px;
+  }
+  #categories .boxes.categories .inside{
+    padding: 13px;
+  }
+  #categories .boxes.categories .inside p:nth-child(1){
+    font-size: 18px;
+  }
+  #categories .boxes.categories .inside p:nth-child(1) span {
+    font-size: 11px;
+  }
+}
 /* ==========================================
 DOCUMENTS SECTION
 ========================================== */
@@ -975,7 +1032,20 @@ DOCUMENTS SECTION
   color: var(--text-muted);
   margin: 0;
 }
-
+@media (max-width: 1200px) {
+  #documents .lisn-list .lisn{
+    padding: 10px;
+  }
+  #documents .lisn-list .lisn p {
+    font-size: 10px;
+  }
+  #documents .lisn-list .lisn h6 {
+    font-size: 13px;
+  }
+  #documents .head-content p{
+    font-size: 12px;
+  }
+}
 /* ==========================================
 SUGGESTION SECTION
 ========================================== */
@@ -1187,6 +1257,33 @@ FOOTER SECTION
     text-align: center;
   }
 }
+@media (max-width: 576px){
+#footer .footer-top > .row{
+  padding: 10px;
+  row-gap: 0;
+}
+#footer .row >*{
+  margin: 0;
+}
+#footer .links li a{
+  font-size: 12px;
+}
+#footer .links li {
+    margin-bottom: 10px;
+}
+#footer .footer-bottom p{
+  margin: 0;
+}
+#footer .footer-bottom .row{
+  font-size: 10px;  
+}
+#footer .footer-bottom-links a{
+  font-size: 10px;  
+}
+.footer-top img{
+  max-width: 100px !important;
+}
+}
 
 /* ------------------------------- home lisenziya ve service-detail sual gonder inputu */
 
@@ -1362,8 +1459,8 @@ MODERN ANIMATED BURGER MENU STYLES
 .burger-menu-btn {
     width: 44px;
     height: 44px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 12px;
     display: none;
     flex-direction: column;
@@ -2132,7 +2229,85 @@ COLLAPSED SIDEBAR STATE (Yığılmış Vəziyyət)
             font-size: 0.8rem;
             color: var(--text-gray);
         }
-
+@media (max-width: 1200px){
+  .intro-hero{
+    font-size: 28px;
+  }
+  .intro-desc {
+    font-size: 12px;
+  }
+  .enter-btn{
+    font-size: 11px;
+  }
+  .status-badge{
+    font-size: 10px;
+  }
+  .card-text{
+    font-size: 10px;
+  }
+  .glass-card{
+    padding: 15px;
+  }
+  .glass-card h4{
+    font-size: 20px;
+  }
+  .card-title {
+    font-size: 15px;
+    }
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .text-secondary{
+    font-size: 12px !important;
+  }
+  .mini-stat h3 {
+    font-size: 28px;
+  }
+  .mini-stat p {
+    font-size: 10px;
+  }
+  .fs-6{
+    font-size: 13px !important;
+  }
+}
+@media (max-width: 992px){
+  .glass-card a{
+    font-size: 12px;
+  }
+      .glass-card h4 {
+        font-size: 16px;
+    }
+  .card-text{
+    margin-top: 0 !important;
+  }
+      .text-secondary {
+        font-size: 11px !important;
+    }
+  .nav-pills .nav-link{
+    font-size: 11px;
+  }
+      .mini-stat h3 {
+        font-size: 25px;
+    }
+        .mini-stat p {
+        font-size: 8px;
+    }
+}
+@media (max-width: 576px){
+      .enter-btn {
+        font-size: 10px;
+        padding: 12px 20px;
+    }
+    .section-heading {
+    font-size: 23px;
+    }
+        .status-badge {
+        font-size: 8px;
+    }
+}
 
 
         /* 404 */
@@ -2539,6 +2714,13 @@ padding: 15px 18px;
   color: var(--text-dark);
   margin-bottom: 6px;
 }
+
+.timeline-content p {
+  font-size: 13px;
+  color: var(--text-slate);
+  margin: 0;
+  line-height: 1.5;
+}
 @media (max-width: 576px) {
 .timeline-content h5 {
 font-size: 13px;
@@ -2546,13 +2728,6 @@ font-size: 13px;
 .timeline-content p{
   font-size: 10px;
 }
-}
-
-.timeline-content p {
-  font-size: 13px;
-  color: var(--text-slate);
-  margin: 0;
-  line-height: 1.5;
 }
 
 /* Responsive Timeline */
@@ -3116,10 +3291,71 @@ CONTACT PAGE ELITE STYLES
     margin-bottom: 10px;
   }
   .contact-info-card{
-    padding: 22px;
+    padding: 18px;
   }
 }
-
+@media (max-width: 576px){
+  .contact-info-card{
+    display: flex;
+    flex-direction: row;
+  }
+  .contact-info-card .icon-wrapper{
+            flex: 1;
+        margin: auto;
+  }
+  .contact-info-card .contact-opts{
+          flex: 4;
+    padding: 0px 20px;
+    text-align: center;
+  }
+  .contact-info-card .card-link{
+    text-align: end;
+    flex: 2;
+  }
+  .contact-info-card p{
+    font-size: 10px;
+        margin-bottom: 0px;
+  }
+  .status-badge-online{
+    font-size: 10px;
+        height: 30px;
+    margin: auto 0;
+  }
+  .contact-info-card .card-link {
+    font-size: 10px;
+  }
+      .contact-info-card .icon-wrapper {
+        font-size: 17px;
+      }
+  .contact-info-card .icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  #contact-main .head-content p{
+    font-size: 12px;
+  }
+  #contact-main .form-floating > label{
+            padding-left: 10px;
+        font-size: 10px;
+        letter-spacing: 1px;
+  }
+  .contact-form-card .form-control, .contact-form-card .form-select{
+    font-size: 11px;
+  }
+  .contact-form-card {
+    padding: 15px 10px;
+  }
+  .form-floating > .form-control{
+    height: 45px;
+    min-height: 45px;
+  }
+  .map-wrapper {
+    min-height: 200px;
+  }
+  .map-overlay-card{
+    display: none;
+  }
+}
 /* login */
 
 /* Modern & Elit Login Səhifəsi Xüsusi Stilləri */
