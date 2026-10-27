@@ -1459,7 +1459,7 @@ MODERN ANIMATED BURGER MENU STYLES
 .burger-menu-btn {
     width: 44px;
     height: 44px;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgb(12 49 91 / 25%);
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 12px;
     display: none;
@@ -3353,7 +3353,7 @@ CONTACT PAGE ELITE STYLES
     min-height: 200px;
   }
   .map-overlay-card{
-    display: none;
+    display: none ;
   }
 }
 /* login */
